@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>OneLife Nienburg - Verkaufs- und Geschäftsmodellanalyse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+            line-height: 1.6;
+            font-size: 11pt;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40mm 20mm;
+            page-break-after: always;
+            border-left: 8px solid #D9A24A; /* Scholz & Friese Gold */
+            background-color: #071B33; /* Deep Navy */
+            color: #ffffff;
+        }
+
+        .cover-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 16pt;
+            letter-spacing: 2px;
+            color: #D9A24A;
+        }
+
+        .cover-title-group {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 38pt;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+        }
+
+        .cover-subtitle {
+            font-size: 18pt;
+            font-weight: 300;
+            color: #e2e8f0;
+            margin: 0;
+        }
+
+        .cover-meta {
+            font-size: 10pt;
+            color: #a0aec0;
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .cover-meta span {
+            display: block;
+        }
+
+        /* Content Styles */
+        .content-container {
+            padding: 20mm;
+        }
+
+        h1, h2, h3, h4 {
+            color: #071B33;
+            font-family: 'Playfair Display', serif;
+            page-break-inside: avoid;
+        }
+
+        h1 {
+            font-size: 24pt;
+            border-bottom: 2px solid #D9A24A;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18pt;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            page-break-before: always;
+        }
+
+        h3 {
+            font-size: 14pt;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        h4 {
+            font-size: 12pt;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #071B33;
+            color: #ffffff;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        /* Custom Flow Steps (Replaced Mermaid) */
+        .flow-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            font-size: 10.5pt;
+            page-break-inside: avoid;
+        }
+
+        .flow-problem {
+            color: #c53030;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .flow-arrow {
+            color: #a0aec0;
+            font-size: 16pt;
+            margin: 0 15px;
+        }
+
+        .flow-solution {
+            color: #22543d;
+            font-weight: 600;
+            flex: 1;
+            text-align: right;
+        }
+
+        /* Problem-Solution Premium Cards styling */
+        .problem-card-wrapper {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            border-left: 5px solid #dd6b20; /* Orange border for problems */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+
+        .problem-card-title {
+            color: #dd6b20 !important;
+            font-size: 13pt !important;
+            margin-top: 0 !important;
+            margin-bottom: 15px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .problem-card-wrapper ul {
+            margin-bottom: 0;
+        }
+
+        .solution-item {
+            list-style: none;
+            background-color: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-left: 4px solid #38a169; /* Green marker */
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            color: #22543d;
+            font-weight: 500;
+        }
+
+        .solution-item strong {
+            color: #276749;
+        }
+
+        /* Code block container styles */
+        .code-block {
+            display: none; /* Hide standard mermaid codes as we visually draw them */
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 30px 0;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #edf2f7;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 9pt;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+            .cover-page {
+                height: 99vh; /* Adjust for page breaks */
+            }
+            h2 {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-logo">SCHOLZ & FRIESE</div>
+        <div class="cover-title-group">
+            <h1 class="cover-title">Verkaufs- &amp;<br>Geschäftsmodellanalyse</h1>
+            <p class="cover-subtitle">OneLife Nienburg — Premium EMS &amp; Personal Training</p>
+        </div>
+        <div class="cover-meta">
+            <div>
+                <span><strong>Kunde:</strong> OneLife Nienburg (Juri Baron)</span>
+                <span><strong>Konzept:</strong> Scholz &amp; Friese Webdesign-Agentur</span>
+            </div>
+            <div style="text-align: right;">
+                <span><strong>Datum:</strong> 5. August 2026</span>
+                <span><strong>Version:</strong> 1.1 (Premium)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+        <h1>Verkaufs- und Geschäftsmodellanalyse: OneLife Nienburg</h1>
+<ul>
+<li>Erstellt von Scholz & Friese für Juri Baron (OneLife)*</li>
+</ul>
+<p></p>
+<p>Dieses Dokument enthält eine fundierte Analyse des Geschäftsmodells von <strong>OneLife Nienburg</strong> und liefert eine strategische Roadmap für die Neukundengewinnung sowie die verkaufspsychologische Strukturierung der neuen Website.</p>
+<p></p>
+<hr>
+<p></p>
+<h2>1. Geschäftsmodell-Analyse (Status Quo & USPs)</h2>
+<p></p>
+<p>OneLife ist kein gewöhnliches Fitnessstudio. Es ist ein hochspezialisiertes Premium-EMS- und Personal-Training-Studio in Nienburg/Weser. Um sich im lokalen Markt (insbesondere gegen Wettbewerber wie BodyImpuls) durchzusetzen, müssen die einzigartigen Stärken glasklar kommuniziert werden.</p>
+<p></p>
+<h3>Die 4 Kern-Säulen des OneLife-Erfolgs (USPs)</h3>
+<p></p>
+<table><thead><tr><th>USP</th><th>Beschreibung</th><th>Verkaufspsychologischer Hebel</th></tr></thead><tbody>
+<tr><td><strong>1. Inhaber Juri Baron</strong></td><td>Ehemaliger Bundesliga-Ringer und Profi-Leistungssportler. Juri steht für echte sportliche Expertise, Disziplin und fundiertes Wissen über Körper und Bewegung.</td><td><strong>Autorität & Vertrauen:</strong> Kunden trainieren nicht bei einem "Wochenend-Lizenz-Trainer", sondern unter der methodischen Leitung eines echten Profi-Athleten.</td></tr>
+<tr><td><strong>2. Kabellose Freiheit (EasyMotionSkin)</strong></td><td>Nutzung von modernsten, kabellosen EMS-Trockenanzügen statt nasser, verkabelter Westen.</td><td><strong>Premium-Komfort & Dynamik:</strong> Kein unangenehmes Nassspritzen, maximale Bewegungsfreiheit, funktionelles und dynamisches Training möglich.</td></tr>
+<tr><td><strong>3. Extreme Zeiteffizienz</strong></td><td>20 Minuten Training pro Woche ersetzen stundenlanges Gerätetraining.</td><td><strong>Einwandbehandlung (Zeitmangel):</strong> Perfekt für vielbeschäftigte Menschen, Unternehmer, Mütter und Führungskräfte.</td></tr>
+<tr><td><strong>4. Firmenfitness-Synergien</strong></td><td>Partnerschaften mit Hansefit und EGYM Wellpass.</td><td><strong>Risikoreduktion & B2B-Kanal:</strong> Mitarbeiter regionaler Unternehmen trainieren oft kostenlos oder stark vergünstigt.</td></tr>
+</tbody></table>
+<p></p>
+<hr>
+<p></p>
+<h2>2. Polarisierende Marketing-Struktur (Problem vs. Lösung)</h2>
+<p></p>
+<p>Um auf der Website sofort die Aufmerksamkeit zu fesseln, brechen wir mit langweiligen Standard-Texten. Wir nutzen das bewährte <strong>PAS-Framework (Problem - Agitate - Solve)</strong>: Wir benennen das Problem radikal ehrlich (polarisierend), vertiefen den Schmerzpunkt und präsentieren OneLife als die einzig logische Befreiung.</p>
+<p></p>
+<h3>Die 4 polarisierenden Kernprobleme & OneLife-Lösungen</h3>
+<p></p>
+<div class="code-block mermaid"><div class="code-content"><div class="flow-step">
+            <span class="flow-problem">❌  Die Zeitlüge - 'Keine Zeit für Sport']</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-solution">🚀  20 Min. kabelloses EMS - Effizient in der Mittagspause]</span>
+          </div><div class="flow-step">
+            <span class="flow-problem">❌  Das stille Leiden - 'Rückenschmerzen als Alltag']</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-solution">🚀  Tiefenmuskel-Aufbau - Unter Anleitung von Bundesliga-Ringer Juri]</span>
+          </div><div class="flow-step">
+            <span class="flow-problem">❌  Die Gym-Lüge - 'Zahlen ohne Ergebnisse']</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-solution">🚀  Personal Training mit Champions - Bodybuilder & Profiboxer pushen dich]</span>
+          </div><div class="flow-step">
+            <span class="flow-problem">❌  Der Energie-Crash - 'Dauerhaft platt auf der Couch']</span>
+            <span class="flow-arrow">➔</span>
+            <span class="flow-solution">🚀  Hormon- & Stoffwechsel-Boost - Lebensenergie in Rekordzeit]</span>
+          </div></div></div><p></p>
+<div class="problem-card-wrapper"><h4 class="problem-card-title">🚨 PROBLEM 1: Die Ausrede „Ich habe keine Zeit für meine Gesundheit“</h4><ul>
+<li><strong>Die harte Wahrheit (Polarisierung):</strong> Du verbringst 10 Stunden am Tag im Chefsessel oder im Auto, verdienst gutes Geld, aber dein Körper baut im Hintergrund unaufhaltsam ab. Die Ausrede „Keine Zeit für Sport“ ist in Wahrheit nur die Angst vor stundenlanger Quälerei im Fitnessstudio.</li>
+<li><strong>Die Agitation (Schmerz vertiefen):</strong> Dein Bauch wird runder, deine Ausdauer sinkt gegen null, und du verlierst die Energie für deine Familie und dein Business. Du tauschst deine Gesundheit gegen To-Do-Listen.</li>
+<li class="solution-item"><strong>Die OneLife-Lösung:</strong> <strong>20 Minuten pro Woche.</strong> Kein Umziehen in nasse, unhygienische Kabel-Westen. Reinschlüpfen in den trockenen EasyMotionSkin-Anzug, 20 Minuten High-Intensity-Training mit deinem Personal Trainer, fertig. Passt in jede Mittagspause.</li>
+</div><!-- close problem-card-wrapper -->
+</ul>
+<p></p>
+<div class="problem-card-wrapper"><h4 class="problem-card-title">🚨 PROBLEM 2: Schmerztabletten statt schmerzfreiem Alltag</h4><ul>
+<li><strong>Die harte Wahrheit (Polarisierung):</strong> Du hast dich insgeheim damit abgefunden, dass dein Rücken ab 14 Uhr wehtut. Du schluckst Ibuprofen wie Kaugummis und denkst, das sei im Alter oder bei deinem Job eben „normal“.</li>
+<li><strong>Die Agitation (Schmerz vertiefen):</strong> Die Schmerzen strahlen in die Beine aus, morgendliches Aufstehen fühlt sich an wie ein Kampf, und du verlierst Stück für Stück deine Lebensqualität. Krankengymnastik bringt dir nur kurzfristige Linderung, weil die Tiefenmuskulatur nicht erreicht wird.</li>
+<li class="solution-item"><strong>Die OneLife-Lösung:</strong> EMS dringt bis in die tiefsten Muskelschichten vor, die deine Wirbelsäule stabilisieren – gelenkschonend und ohne schwere Gewichte. Begleitet von <strong>Juri Baron</strong> (ehem. Bundesliga-Ringer), der genau weiß, wie man einen ramponierten Körper athletisch wieder aufbaut.</li>
+</div><!-- close problem-card-wrapper -->
+</ul>
+<p></p>
+<div class="problem-card-wrapper"><h4 class="problem-card-title">🚨 PROBLEM 3: Die Spende an das Discount-Fitnessstudio</h4><ul>
+<li><strong>Die harte Wahrheit (Polarisierung):</strong> Du zahlst seit Monaten 30, 50 oder 80 Euro an ein anonymes Studio, gehst aber nicht hin. Und wenn du hingehst, machst du Alibi-Übungen an verstaubten Geräten, während du auf dein Smartphone starrst. Das Ergebnis im Spiegel nach 6 Monaten? Exakt null.</li>
+<li><strong>Die Agitation (Schmerz vertiefen):</strong> Ohne Trainer, ohne festen Termin und ohne Plan ist Scheitern vorprogrammiert. Du verschwendest Zeit, Geld und deine Motivation, während dein innerer Schweinehund jede Diskussion gewinnt.</li>
+<li class="solution-item"><strong>Die OneLife-Lösung:</strong> Bei uns trainierst du nicht allein. Du hast einen festen Termin und eine <strong>Crew aus echten Champions</strong> an deiner Seite (Profi-Boxer, Bodybuilder), die dich motivieren. Jedes Training ist betreutes Personal Training. Wir lassen dich nicht durchhängen.</li>
+</div><!-- close problem-card-wrapper -->
+</ul>
+<p></p>
+<div class="problem-card-wrapper"><h4 class="problem-card-title">🚨 PROBLEM 4: Chronisch energielos (Der Akku ist leer)</h4><ul>
+<li><strong>Die harte Wahrheit (Polarisierung):</strong> Nach der Arbeit bist du so erschöpft, dass die Couch deine einzige Endstation ist. Du fühlst dich ausgebrannt, deine Konzentration lässt nach, und dein Stoffwechsel läuft im Notfallmodus.</li>
+<li><strong>Die Agitation (Schmerz vertiefen):</strong> Dein Schlaf wird schlechter, du nimmst an den falschen Stellen zu, und deine mentale Belastbarkeit sinkt. Du lebst im Energiesparmodus.</li>
+<li class="solution-item"><strong>Die OneLife-Lösung:</strong> Unser EMS-Stoffwechsel- und Cardio-Training setzt Endorphine frei, kurbelt die Fettverbrennung massiv an und weckt dein zentrales Nervensystem auf. Du gehst mit mehr Energie aus dem Studio, als du reingekommen bist. <em>OneLife</em> – weil du nur dieses eine Leben hast.</li>
+</div><!-- close problem-card-wrapper -->
+</ul>
+<p></p>
+<hr>
+<p></p>
+<h2>3. Vertrauens-Strategie (Trust Pro Max)</h2>
+<ul>
+<li>Wie wir Skeptiker auf der Website überzeugen*</li>
+</ul>
+<p></p>
+<p>EMS-Training wird von Laien oft noch skeptisch betrachtet ("Stromschlag-Training", "Ist das gesund?", "Bringt das wirklich was?"). Daher ist <strong>Trust</strong> der wichtigste Hebel auf der Website.</p>
+<p></p>
+<h3>Die Integration der Video-Testimonials</h3>
+<p>Deine Video-Clips sind Gold wert! Videos bauen 10-mal schneller Vertrauen auf als reiner Text. Wir sollten sie wie folgt inszenieren:</p>
+<ul>
+<li><strong>Keine unübersichtliche Videowand:</strong> Jedes Video muss einer der oben genannten Zielgruppen zugeordnet werden.</li>
+<li><strong>Das "Social Proof Karussell":</strong> Ein interaktives Element auf der Website. Neben dem Video steht in 1-2 Sätzen das konkrete Ergebnis (z. B. <em>"Thomas, 48: Nach 6 Wochen EMS endlich keine Rückenschmerzen mehr im Büro!"</em>).</li>
+<li><strong>Direkt im Sichtfeld (Above the Fold / Hero Section):</strong> Ein kleiner Hinweis wie "Bereits über 500 glückliche Mitglieder in Nienburg" mit Mini-Vorschaubildern der Testimonials steigert die Klickrate auf den CTA.</li>
+</ul>
+<p></p>
+<h3>Weitere Vertrauenselemente:</h3>
+<ol>
+<li><strong>Die Juri-Baron-Story ("Vom Profi lernen"):</strong> Eine eigene Sektion über Juri. Foto im Sport-Kontext (z. B. Ringer-Matte oder professionelles Trainer-Portrait) und eine kurze, emotionale Story, warum er EMS nach seiner Profikarriere für die effektivste Methode hält.</li>
+<li><strong>Das Trainer-Team als sportliches Powerhouse:</strong> Vorstellung der 4 Trainer, die alle eine sportliche Profi-Vergangenheit haben (z. B. Profi-Boxer, Bodybuilder, etc.) und alle eine anerkannte Trainerlizenz besitzen.</li>
+<li><strong>Qualitäts-Zertifikate:</strong> "Lizensiertes EMS-Personal-Training", Auszeichnungen oder Partnerlogos (EasyMotionSkin, Hansefit, Wellpass).</li>
+<li><strong>Risikofreies Angebot:</strong> Das "Kostenlose Probetraining" als risikoloser Einstieg.</li>
+</ul>
+<p></p>
+<hr>
+<p></p>
+<h2>4. Die Verkaufs-Funnel-Strategie (Website-Struktur)</h2>
+<p></p>
+<p>Um Besucher in zahlende Studio-Mitglieder zu verwandeln, nutzen wir einen klassischen dreistufigen Funnel, der direkt auf der Website abgebildet wird.</p>
+<p></p>
+<div class="code-block mermaid"><div class="code-content"><br>B->>W: Landet auf Hero-Section (Erkennt sofort USP & Juri's Expertise)<br>W->>W: Liest Schmerzpunkt-Sektionen & schaut Video-Testimonials<br>B->>W: Klickt auf "Kostenloses Probetraining vereinbaren"<br>W->>W: Nutzt interaktiven 3-Schritte-Terminfinder<br>B->>S: Erscheint zum Probetraining (Persönlicher Kontakt mit Juri/Team)<br>S->>S: Abschluss der Premium-Mitgliedschaft<br></div></div><p></p>
+<h3>Der Aufbau der Website (Wireframe-Konzept):</h3>
+<p></p>
+<ol>
+<li><strong>Hero Section (Das Schaufenster):</strong></li>
+<li><strong>Eyebrow:</strong> "Premium EMS- & Personal Training in Nienburg"</li>
+<li><strong>Starke Headline:</strong> "20 Minuten Training. Maximale Erfolge. Begleitet von Profis."</li>
+<li><strong>Subline:</strong> "Erlebe kabelloses EMS-Training mit EasyMotionSkin unter der Leitung von Bundesliga-Ringer Juri Baron. Schonend, hocheffizient und perfekt für deinen Alltag."</li>
+<li><strong>CTAs:</strong> Primär: "Kostenloses Probetraining sichern" (vibrant, auffällig). Sekundär: "Wie es funktioniert" (smooth scroll).</li>
+<li><strong>Trust-Leiste direkt darunter:</strong> Hansefit-Logo, EGYM Wellpass-Logo, EasyMotionSkin-Logo, "Inhabergeführt von Juri Baron".</li>
+<li><strong>Die polarisierenden Problem-Zonen (Deine Herausforderung):</strong></li>
+<li>Statt Standard-Leistungsbeschreibungen nutzen wir emotionale Problem-Karten mit provokanten Fragen (z. B. <em>"Spende für das Gym oder echte Ergebnisse?"</em>, <em>"Keine Zeit für Gesundheit?"</em>, <em>"Leben mit Rückenschmerzen?"</em>). Bei Klick oder Hover dreht sich die Karte und zeigt die OneLife-Lösung.</li>
+<li><strong>Das Video-Testimonial-Karussell (Der Beweis):</strong></li>
+<li>Echte Nienburger Kunden, die genau diese Probleme gelöst haben. Die Videos entkräften sofort jeden Zweifel.</li>
+<li><strong>Die "Juri Baron Story" (Der Kopf hinter OneLife):</strong></li>
+<li>Story über Juris Bundesliga-Ringer-Karriere. Warum er als Profi auf EMS schwört und warum er keine Ausreden gelten lässt.</li>
+</ul>
+<ol>
+<li><strong>Die Trainer-Crew (Champions als Trainer):</strong></li>
+<li>Vorstellung der Trainer (z. B. Bodybuilder, Profiboxer) mit starken Schwarz-Weiß-Portraits und ihren sportlichen Meilensteinen. Botschaft: <em>"Hier trainieren dich keine Amateure. Hier trainieren dich Champions."</em></li>
+</ul>
+<ol>
+<li><strong>Wie funktioniert kabelloses EMS? (Die Erklärung):</strong></li>
+<li>Kurze, visuelle 3-Schritt-Erklärung der kabellosen EasyMotionSkin-Technologie: Anziehen -> Aktivieren -> Auspowern.</li>
+</ul>
+<ol>
+<li><strong>Der interaktive Lead-Generator (Termin-Turbo):</strong></li>
+<li>Ein interaktiver Kurz-Fragebogen statt eines langweiligen Kontaktformulars: <em>"Welches Problem willst du lösen?"</em> -> <em>"Wann hast du Zeit?"</em> -> <em>"Termin anfragen"</em>.</li>
+</ul>
+<p></p>
+<hr>
+<p></p>
+<h2>5. Nächste Schritte & Empfehlungen</h2>
+<p></p>
+<p>Um direkt mit maximaler Professionalität zu starten, schlage ich folgenden Ablauf vor:</p>
+<p></p>
+<ol>
+<li><strong>Projektordner anlegen:</strong> Wir erstellen das Verzeichnis unter <code>C:\Users\eaddi\.gemini\antigravity\scratch\OneLife</code> und richten es als aktiven Workspace ein.</li>
+<li><strong>Medien-Upload:</strong> Lade deine Video-Testimonials und Fotos in deinen R2-Ordner hoch:</li>
+</ul>
+<p><code>https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/[dateiname.endung]</code></p>
+<ol>
+<li><strong>Website-Entwicklung:</strong> Wir bauen eine atemberaubende, moderne One-Page-Website mit modernem Dark-Mode, HSL-Farben (Deep Graphite/Slate mit einem energiegeladenen Akzentton wie Electric Cyan/Blue), flüssigen Mikro-Animationen (Framer Motion) und perfekter Mobil-Optimierung.</li>
+</ul>
+<p></p>
+<p></p>
+
+    </div>
+
+</body>
+</html>
