@@ -62,26 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // 3. PAS Cards Mobile Flip Support (Touch Devices)
+    // 3. Editorial Problems Section (Clean Interaction)
     // ==========================================================================
-    const pasCards = document.querySelectorAll('.pas-card');
-    
-    pasCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Check if user clicked a link/button inside the card
-            if (e.target.closest('.btn')) return;
-            
-            // On touch devices or click, toggle flipped state
-            card.classList.toggle('flipped');
-            
-            // Remove flipped state from other cards
-            pasCards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.classList.remove('flipped');
-                }
-            });
-        });
-    });
+    // Smooth scrolling already handled by global anchor listener
 
     // ==========================================================================
     // 4. Testimonial Sliderrondell (3D video carousel)
@@ -358,5 +341,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================================================
+    // 6. Award Video Player Interaction
+    // ==========================================================================
+    const awardVideoBox = document.querySelector('.award-video-box');
+    if (awardVideoBox) {
+        const awardVideo = awardVideoBox.querySelector('video');
+        const awardPlayBtn = awardVideoBox.querySelector('.award-play-btn');
+        const awardOverlay = awardVideoBox.querySelector('.award-video-overlay');
+
+        if (awardVideo && awardPlayBtn) {
+            awardPlayBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (awardVideo.paused) {
+                    awardVideo.play();
+                    awardOverlay.style.opacity = '0';
+                    awardOverlay.style.pointerEvents = 'none';
+                    awardVideo.controls = true;
+                } else {
+                    awardVideo.pause();
+                    awardOverlay.style.opacity = '1';
+                    awardOverlay.style.pointerEvents = 'auto';
+                    awardVideo.controls = false;
+                }
+            });
+
+            awardVideo.addEventListener('pause', () => {
+                awardOverlay.style.opacity = '1';
+                awardOverlay.style.pointerEvents = 'auto';
+            });
+        }
+    }
+
+    // ==========================================================================
+    // 7. FAQ Accordion Interaction
+    // ==========================================================================
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        if (questionBtn) {
+            questionBtn.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close other open FAQ items for a clean editorial feel
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherBtn = otherItem.querySelector('.faq-question');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    questionBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('active');
+                    questionBtn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+    });
     
 });
