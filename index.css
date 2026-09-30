@@ -2909,6 +2909,16 @@ a {
         grid-template-columns: 1fr;
         gap: 36px;
     }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-links-grid {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2977,30 +2987,33 @@ a {
     }
 
     .problems-editorial-list {
-        gap: 56px;
+        gap: 48px;
     }
 
-    .problem-editorial-item,
-    .problem-editorial-item.reverse {
+    .problems-section .problem-editorial-item,
+    .problems-section .problem-editorial-item.reverse {
         grid-template-columns: 1fr;
-        gap: 28px;
-        padding-bottom: 56px;
+        gap: 22px;
+        padding-bottom: 48px;
     }
 
-    .problem-editorial-item.reverse .problem-editorial-media {
-        order: 1;
+    .problems-section .problem-editorial-media,
+    .problems-section .problem-editorial-item .problem-editorial-media,
+    .problems-section .problem-editorial-item.reverse .problem-editorial-media {
+        order: 1 !important;
+        width: 100%;
+        height: 260px;
     }
 
-    .problem-editorial-item.reverse .problem-editorial-content {
-        order: 2;
-    }
-
-    .problem-editorial-media {
-        height: 300px;
+    .problems-section .problem-editorial-content,
+    .problems-section .problem-editorial-item .problem-editorial-content,
+    .problems-section .problem-editorial-item.reverse .problem-editorial-content {
+        order: 2 !important;
+        width: 100%;
     }
 
     .problem-solution-title {
-        font-size: 26px;
+        font-size: 24px;
     }
     
     .slider-track {
@@ -3073,25 +3086,62 @@ a {
 }
 
 @media (max-width: 480px) {
+    .section-container {
+        padding: 0 16px;
+    }
+
     .hero-title {
-        font-size: 32px;
+        font-size: 30px;
+        line-height: 1.15;
     }
     
+    .hero-top-badges-wrap {
+        gap: 8px;
+    }
+
+    .hero-google-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    .partner-logos-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+
+    .partner-logo-item {
+        width: 100%;
+        padding: 8px 10px;
+        min-height: 46px;
+    }
+
+    .partner-logo-img {
+        max-width: 100%;
+        height: 24px;
+    }
+
     .hero-cta-group .btn {
         width: 100%;
     }
 
-    .problem-editorial-media {
-        height: 240px;
+    .problems-section .problem-editorial-media,
+    .problems-section .problem-editorial-item .problem-editorial-media,
+    .problems-section .problem-editorial-item.reverse .problem-editorial-media {
+        height: 210px;
     }
     
     .problem-solution-title {
-        font-size: 22px;
+        font-size: 21px;
     }
     
     .problem-quote-badge {
         font-size: 12px;
-        padding: 5px 10px;
+        padding: 6px 12px;
+        line-height: 1.35;
     }
     
     .slide-card {
@@ -3136,6 +3186,25 @@ a {
     }
 
     .award-card {
-        padding: 24px 18px;
+        padding: 24px 16px;
+    }
+
+    .award-title {
+        font-size: 26px;
+    }
+
+    .funnel-container {
+        padding: 22px 16px;
+        border-radius: 20px;
+    }
+
+    .funnel-header h3 {
+        font-size: 20px;
+    }
+
+    .funnel-option-btn {
+        padding: 13px 14px;
+        font-size: 14px;
+        border-radius: 12px;
     }
 }

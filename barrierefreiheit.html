@@ -3,68 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erklärung zur Barrierefreiheit - OneLife Nienburg</title>
+    <title>Erklärung zur Barrierefreiheit | OneLife EMS-Studio Nienburg</title>
+    <meta name="description" content="Erklärung zur digitalen und baulichen Barrierefreiheit des OneLife EMS-Studios in Nienburg/Weser.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" href="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" type="image/png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="index.css">
     <style>
-        .legal-section {
-            padding: 160px 0 100px 0;
-            min-height: 80vh;
+        .legal-page-section {
+            padding: 140px 0 100px 0;
+            min-height: 85vh;
+            position: relative;
+        }
+        .legal-header-box {
+            margin-bottom: 40px;
+        }
+        .legal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary-glow);
+            background: rgba(0, 160, 84, 0.1);
+            border: 1px solid rgba(0, 160, 84, 0.3);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+        }
+        .legal-page-title {
+            font-family: var(--font-headings);
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+        .legal-subtitle {
+            font-size: 15px;
+            color: var(--color-text-muted);
+            max-width: 720px;
+            line-height: 1.6;
         }
         .legal-card {
             background-color: var(--color-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
-            padding: 48px;
-            margin-top: 30px;
+            padding: 44px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        .legal-article {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        .legal-article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
         .legal-card h2 {
-            font-size: 24px;
+            font-size: 20px;
             color: #ffffff;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 8px;
-            font-family: var(--font-body);
-            font-weight: 600;
-        }
-        .legal-card h2:first-of-type {
             margin-top: 0;
-        }
-        .legal-card h3 {
-            font-size: 18px;
-            color: #ffffff;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-family: var(--font-body);
-            font-weight: 600;
+            margin-bottom: 14px;
+            font-family: var(--font-headings);
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
         .legal-card p {
             font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            color: var(--color-text-muted);
-            text-align: left;
+            line-height: 1.75;
+            margin-bottom: 14px;
+            color: #94A3B8;
+            overflow-wrap: break-word;
+        }
+        .legal-card p:last-child {
+            margin-bottom: 0;
         }
         .legal-card ul {
             margin-bottom: 16px;
             padding-left: 20px;
-            color: var(--color-text-muted);
+            color: #94A3B8;
             font-size: 15px;
+            line-height: 1.7;
         }
         .legal-card li {
             margin-bottom: 8px;
+        }
+        .legal-card strong {
+            color: #F8FAFC;
+            font-weight: 600;
+        }
+        .legal-card a {
+            color: var(--color-primary-glow);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: var(--transition-fast);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        .legal-card a:hover {
+            color: #ffffff;
+        }
+        .legal-contact-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 14px 0 0 0;
+        }
+        .legal-contact-card p {
+            margin-bottom: 6px;
+        }
+        .legal-contact-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .legal-page-section {
+                padding: 110px 0 60px 0;
+            }
+            .legal-page-title {
+                font-size: 30px;
+            }
+            .legal-card {
+                padding: 26px 18px;
+                border-radius: 18px;
+            }
+            .legal-card h2 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header (Static logo-only version) -->
     <header class="main-header scrolled">
         <div class="header-container">
             <a href="index.html" class="logo-wrapper">
@@ -75,50 +158,58 @@
     </header>
 
     <main>
-        <section class="legal-section">
-            <div class="section-container narrow-container">
+        <section class="legal-page-section">
+            <div class="section-container" style="max-width: 920px;">
                 
-                <h1 class="section-title">Erklärung zur Barrierefreiheit</h1>
+                <div class="legal-header-box">
+                    <span class="legal-badge">Teilhabe & Zugänglichkeit</span>
+                    <h1 class="legal-page-title">Erklärung zur Barrierefreiheit</h1>
+                    <p class="legal-subtitle">
+                        OneLife steht für ein ganzheitliches, zugängliches und gesundheitsförderndes Training für jeden Menschen – sowohl vor Ort im Studio als auch in unserer digitalen Präsenz.
+                    </p>
+                </div>
                 
                 <div class="legal-card">
-                    <h2>Unser Anspruch</h2>
-                    <p>
-                        OneLife steht für Gesundheit, Vitalität und Lebensqualität – und das für **jeden** Menschen. Wir sind fest davon überzeugt, dass Fitness und körperliches Wohlbefinden keine Barrieren kennen sollten. Daher bemühen wir uns stetig, sowohl den Besuch in unserem Studio vor Ort als auch die Nutzung unserer digitalen Angebote für alle Menschen so zugänglich wie möglich zu gestalten.
-                    </p>
+                    <article class="legal-article">
+                        <h2>1. Unser Anspruch</h2>
+                        <p>
+                            Als Vorreiter für modernes, gelenk- und rückenschonendes Personal Training legen wir höchsten Wert darauf, dass unsere Angebote und unsere Website für alle Menschen zugänglich und nutzbar sind – unabhängig von körperlichen oder kognitiven Einschränkungen.
+                        </p>
+                    </article>
 
-                    <h2>1. Barrierefreiheit im Studio (Nienburg/Weser)</h2>
-                    <p>
-                        Unser Studio in der Georgstraße 20 (bzw. Auf dem Kampe 6) in Nienburg wurde mit Fokus auf Barrierearmut ausgewählt und eingerichtet:
-                    </p>
-                    <ul>
-                        <li><strong>Stufenloser Zugang:</strong> Das Studio ist ebenerdig und ohne Stufen zugänglich, was den Zutritt mit Rollstühlen, Rollatoren oder anderen Gehhilfen problemlos ermöglicht.</li>
-                        <li><strong>Breite Durchgänge:</strong> Die Trainingsflächen und Umkleidebereiche bieten ausreichend Wendekreis und breite Türen für eine barrierefreie Nutzung.</li>
-                        <li><strong>Gezieltes Reha-Training:</strong> Unser EMS-Training ist durch seine kabellose Freiheit und die individuelle Impulssteuerung perfekt für Menschen mit körperlichen Einschränkungen, Gelenkschmerzen oder nach Operationen geeignet. Alex, unser Reha-Coach, passt jedes Training auf deine spezifischen Bedürfnisse an.</li>
-                        <li><strong>Persönliche Hilfestellung:</strong> Da bei uns ausschließlich 1-zu-1 Personal Training stattfindet, ist während deines gesamten Aufenthalts ein Trainer an deiner Seite, der dich beim Umziehen, Anlegen des Anzugs und während der Übungen unterstützt.</li>
-                    </ul>
+                    <article class="legal-article">
+                        <h2>2. Digitale Barrierefreiheit der Website</h2>
+                        <p>
+                            Wir bemühen uns, diese Website im Einklang mit den Richtlinien für barrierefreie Webinhalte (WCAG 2.1 / BITV 2.0) zu gestalten. Zu den umgesetzten Maßnahmen gehören:
+                        </p>
+                        <ul>
+                            <li><strong>Hoher Kontrast:</strong> Die Farb- und Kontrastwerte wurden so austariert, dass Texte und Bedienelemente auch bei eingeschränktem Sehvermögen hervorragend wahrnehmbar sind.</li>
+                            <li><strong>Tastatur-Bedienbarkeit:</strong> Alle interaktiven Elemente (Buttons, Links, unser interaktiver Lead-Funnel zur Terminbuchung) sind logisch per Tastatur (Tabulatortaste) ansteuerbar.</li>
+                            <li><strong>Skalierbare Typografie:</strong> Die Schriftgrößen passen sich dynamisch an moderne Bildschirmauflösungen an und lassen sich ohne Qualitäts- oder Inhaltsverlust vergrößern.</li>
+                            <li><strong>Semantisches Markup & ARIA:</strong> Wir nutzen saubere HTML5-Strukturen und beschreibende ARIA-Attribute, um Screenreadern das Vorlesen der Inhalte zu erleichtern.</li>
+                        </ul>
+                    </article>
 
-                    <h2>2. Digitale Barrierefreiheit der Website</h2>
-                    <p>
-                        Wir bemühen uns, diese Website im Einklang mit den Richtlinien für barrierefreie Webinhalte (WCAG 2.1) zu gestalten. Zu den implementierten Maßnahmen gehören:
-                    </p>
-                    <ul>
-                        <li><strong>Hoher Kontrast:</strong> Die Farbkombinationen der Website wurden so gewählt, dass die Texte vor dem dunklen Hintergrund auch bei Sehschwächen optimal lesbar sind.</li>
-                        <li><strong>Tastatur-Bedienbarkeit:</strong> Alle interaktiven Elemente (Buttons, Links, unser interaktiver Lead-Funnel) sind vollständig per Tastatur (Tabulatortaste) bedienbar.</li>
-                        <li><strong>Skalierbare Schrift:</strong> Die Schriftgrößen passen sich flexibel an die Browsereinstellungen an und können ohne Layoutverlust vergrößert werden.</li>
-                        <li><strong>Screenreader-Freundlichkeit:</strong> Wir nutzen semantisches HTML5 und beschreibende ARIA-Attribute, um blinden und sehbehinderten Nutzern das Vorlesen der Seite durch Screenreader zu erleichtern.</li>
-                    </ul>
+                    <article class="legal-article">
+                        <h2>3. Barrierefreiheit vor Ort im Studio</h2>
+                        <p>
+                            Unser EMS-Studio Auf dem Kampe 6 in 31582 Nienburg/Weser ist für Kunden jeden Alters und Fitnesslevels ausgelegt. Durch die kabellose EasyMotionSkin Technologie entfallen schwere Gewichte und kabelgebundene Hürden. Auch unser Beckenboden-Stuhl (SHR Germany Pelvi Chair) ermöglicht ein vollständig bekleidetes, sitzendes und berührungsfreies Training. Sollten Sie besondere Unterstützung benötigen, kontaktieren Sie uns vorab, damit wir Ihren Besuch optimal vorbereiten können.
+                        </p>
+                    </article>
 
-                    <h2>3. Feedback und Kontakt</h2>
-                    <p>
-                        Sollten dir Barrieren auf unserer Website oder in unserem Studio auffallen, die dich an der Nutzung hindern, freuen wir uns über dein Feedback. Wir arbeiten kontinuierlich an Verbesserungen:
-                    </p>
-                    <p>
-                        <strong>Kontakt:</strong><br>
-                        OneLife EMS-Studio<br>
-                        Juri Baron<br>
-                        Telefon: 05021 - 8 890 890<br>
-                        E-Mail: hello@onelife-nienburg.de
-                    </p>
+                    <article class="legal-article">
+                        <h2>4. Feedback & Kontakt</h2>
+                        <p>
+                            Sollten Ihnen Mängel in Bezug auf die barrierefreie Gestaltung unserer Website auffallen oder haben Sie Fragen zur Zugänglichkeit, freuen wir uns über Ihre Nachricht:
+                        </p>
+                        <div class="legal-contact-card">
+                            <p><strong>OneLife EMS-Studio</strong></p>
+                            <p>Juri Baron</p>
+                            <p>Auf dem Kampe 6, 31582 Nienburg/Weser</p>
+                            <p>Telefon: <a href="tel:050218890890">05021 - 8 890 890</a></p>
+                            <p>E-Mail: <a href="mailto:hello@onelife-nienburg.de">hello@onelife-nienburg.de</a></p>
+                        </div>
+                    </article>
                 </div>
                 
             </div>
@@ -129,8 +220,42 @@
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" alt="OneLife Nienburg Logo" class="footer-logo">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" alt="OneLife Nienburg Logo" class="footer-logo">
+                </a>
                 <p class="footer-tagline">Premium EMS & Personal Training in Nienburg/Weser.</p>
+                
+                <div class="footer-trust-row">
+                    <!-- Google 5-Star Badge in Footer (Direct Write-Review Link) -->
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJK2e3XFOMsEcRyJWmjAh1tcE" target="_blank" rel="noopener noreferrer" class="footer-google-badge" title="Jetzt eigene Google-Bewertung für OneLife schreiben">
+                        <span class="f-g-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                        </span>
+                        <div class="f-g-text">
+                            <div class="f-g-stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                <span class="f-g-score">5.0</span>
+                            </div>
+                            <span class="f-g-sub">Über 700+ Google-Bewertungen</span>
+                        </div>
+                    </a>
+
+                    <div class="footer-social-links">
+                        <a href="https://www.instagram.com/onelifenienburgbyjuribaron/" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="OneLife Nienburg auf Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/onelife.nienburg" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="OneLife Nienburg auf Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-links-grid">
@@ -143,11 +268,18 @@
                     </p>
                 </div>
                 <div class="footer-col">
+                    <h4 class="footer-heading">Kontakt</h4>
+                    <p class="footer-info">
+                        Telefon: 05021 - 8 890 890<br>
+                        E-Mail: hello@onelife-nienburg.de
+                    </p>
+                </div>
+                <div class="footer-col">
                     <h4 class="footer-heading">Rechtliches</h4>
                     <nav class="footer-nav" aria-label="Rechtliche Navigation">
                         <a href="impressum.html" class="footer-link">Impressum</a>
                         <a href="datenschutz.html" class="footer-link">Datenschutz</a>
-                        <a href="barrierefreiheit.html" class="footer-link">Barrierefreiheit</a>
+                        <a href="barrierefreiheit.html" class="footer-link active">Barrierefreiheit</a>
                     </nav>
                 </div>
             </div>

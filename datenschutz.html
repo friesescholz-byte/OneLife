@@ -3,62 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung - OneLife Nienburg</title>
+    <title>Datenschutzerklärung | OneLife EMS-Studio Nienburg</title>
+    <meta name="description" content="Datenschutzerklärung von OneLife Nienburg. Ausführliche Informationen zum Schutz Ihrer personenbezogenen Daten gemäß DSGVO, BDSG und TDDDG.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" href="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" type="image/png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="index.css">
     <style>
-        .legal-section {
-            padding: 160px 0 100px 0;
-            min-height: 80vh;
+        .legal-page-section {
+            padding: 140px 0 100px 0;
+            min-height: 85vh;
+            position: relative;
+        }
+        .legal-header-box {
+            margin-bottom: 40px;
+        }
+        .legal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary-glow);
+            background: rgba(0, 160, 84, 0.1);
+            border: 1px solid rgba(0, 160, 84, 0.3);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+        }
+        .legal-page-title {
+            font-family: var(--font-headings);
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+        .legal-subtitle {
+            font-size: 15px;
+            color: var(--color-text-muted);
+            max-width: 720px;
+            line-height: 1.6;
         }
         .legal-card {
             background-color: var(--color-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
-            padding: 48px;
-            margin-top: 30px;
+            padding: 44px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        .legal-toc {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+        .legal-toc-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #FFFFFF;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legal-toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 24px;
+        }
+        .legal-toc-item a {
+            font-size: 14px;
+            color: #94A3B8;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .legal-toc-item a:hover {
+            color: var(--color-primary-glow);
+            transform: translateX(3px);
+        }
+        .legal-article {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 36px;
+            margin-bottom: 36px;
+        }
+        .legal-article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
         .legal-card h2 {
-            font-size: 24px;
+            font-size: 22px;
             color: #ffffff;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 8px;
-            font-family: var(--font-body);
-            font-weight: 600;
-        }
-        .legal-card h2:first-of-type {
             margin-top: 0;
+            margin-bottom: 18px;
+            font-family: var(--font-headings);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.01em;
+        }
+        .legal-card h2 .legal-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(0, 160, 84, 0.15);
+            color: var(--color-primary-glow);
+            font-size: 14px;
+            font-weight: 800;
+            font-family: var(--font-headings);
+            border: 1px solid rgba(0, 160, 84, 0.3);
+            flex-shrink: 0;
         }
         .legal-card h3 {
-            font-size: 18px;
-            color: #ffffff;
-            margin-top: 20px;
+            font-size: 17px;
+            color: #E2E8F0;
+            margin-top: 24px;
             margin-bottom: 10px;
-            font-family: var(--font-body);
+            font-family: var(--font-headings);
             font-weight: 600;
         }
         .legal-card p {
             font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-            color: var(--color-text-muted);
-            text-align: left;
+            line-height: 1.75;
+            margin-bottom: 14px;
+            color: #94A3B8;
+            overflow-wrap: break-word;
+        }
+        .legal-card strong {
+            color: #F8FAFC;
+            font-weight: 600;
         }
         .legal-card ul {
             margin-bottom: 16px;
             padding-left: 20px;
-            color: var(--color-text-muted);
+            color: #94A3B8;
             font-size: 15px;
+            line-height: 1.7;
         }
         .legal-card li {
             margin-bottom: 8px;
+        }
+        .legal-card a {
+            color: var(--color-primary-glow);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: var(--transition-fast);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        .legal-card code {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #E2E8F0;
+        }
+        .legal-card a:hover {
+            color: #ffffff;
+        }
+        .legal-highlight-box {
+            background: rgba(0, 160, 84, 0.05);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+        .legal-highlight-box p {
+            margin-bottom: 0;
+            color: #CBD5E1;
+            font-size: 14px;
+        }
+        .legal-contact-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        .legal-contact-card p {
+            margin-bottom: 6px;
+        }
+        .legal-contact-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .legal-page-section {
+                padding: 110px 0 60px 0;
+            }
+            .legal-page-title {
+                font-size: 30px;
+            }
+            .legal-card {
+                padding: 26px 18px;
+                border-radius: 18px;
+            }
+            .legal-toc-list {
+                grid-template-columns: 1fr;
+            }
+            .legal-card h2 {
+                font-size: 19px;
+            }
         }
     </style>
 </head>
@@ -75,79 +243,341 @@
     </header>
 
     <main>
-        <section class="legal-section">
-            <div class="section-container narrow-container">
+        <section class="legal-page-section">
+            <div class="section-container" style="max-width: 920px;">
                 
-                <h1 class="section-title">Datenschutzerklärung</h1>
+                <div class="legal-header-box">
+                    <span class="legal-badge">Datenschutz & Transparenz</span>
+                    <h1 class="legal-page-title">Datenschutzerklärung</h1>
+                    <p class="legal-subtitle">
+                        Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Nachfolgend informieren wir Sie umfassend und transparent über die Erhebung, Verarbeitung und Speicherung personenbezogener Daten bei der Nutzung unserer Website sowie unserer digitalen Services gemäß der Datenschutz-Grundverordnung (DSGVO), dem Bundesdatenschutzgesetz (BDSG) und dem Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).
+                    </p>
+                </div>
                 
                 <div class="legal-card">
-                    <h2>1. Datenschutz auf einen Blick</h2>
-                    <h3>Allgemeine Hinweise</h3>
-                    <p>
-                        Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
-                    </p>
-                    <h3>Datenerfassung auf dieser Website</h3>
-                    <p>
-                        <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
-                        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
-                    </p>
-                    <p>
-                        <strong>Wie erfassen wir Ihre Daten?</strong><br>
-                        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.<br>
-                        Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-                    </p>
-                    <p>
-                        <strong>Wofür nutzen wir Ihre Daten?</strong><br>
-                        Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden. Daten aus dem Kontaktformular nutzen wir ausschließlich zur Kontaktaufnahme zwecks Absprache des Probetrainings.
-                    </p>
-                    <p>
-                        <strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
-                        Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.
-                    </p>
 
-                    <h2>2. Hosting</h2>
-                    <p>
-                        Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br>
-                        <strong>Cloudflare Pages</strong><br>
-                        Dienstanbieter ist die Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Cloudflare Pages stellt uns Webhosting und Content Delivery Networks (CDN) zur Verfügung. Die Übertragung von Daten in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie in den Datenschutzbestimmungen von Cloudflare.
-                    </p>
+                    <!-- Quick Navigation -->
+                    <div class="legal-toc">
+                        <div class="legal-toc-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            Inhaltsübersicht
+                        </div>
+                        <ul class="legal-toc-list">
+                            <li class="legal-toc-item"><a href="#abschnitt-1">1. Datenschutz auf einen Blick</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-2">2. Hosting & Cloudflare CDN</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-3">3. Pflichtinformationen & Betroffenenrechte</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-4">4. Datenerfassung & Lead-Funnel</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-5">5. Analyse-Tools & Marketing (Meta Pixel, GA4)</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-6">6. Google Bewertungen & Google Maps</a></li>
+                            <li class="legal-toc-item"><a href="#abschnitt-7">7. Social Media, Webfonts & Sicherheit</a></li>
+                        </ul>
+                    </div>
 
-                    <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
-                    <h3>Datenschutz</h3>
-                    <p>
-                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung. Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Diese Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
-                    </p>
-                    <p>
-                        Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
-                    </p>
-                    <h3>Hinweis zur verantwortlichen Stelle</h3>
-                    <p>
-                        Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br>
-                        OneLife EMS-Studio<br>
-                        Juri Baron<br>
-                        Auf dem Kampe 6<br>
-                        31582 Nienburg/Weser<br>
-                        E-Mail: hello@onelife-nienburg.de
-                    </p>
-                    <p>
-                        Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
-                    </p>
-                    <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-                    <p>
-                        Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
-                    </p>
+                    <!-- 1. Datenschutz auf einen Blick -->
+                    <article class="legal-article" id="abschnitt-1">
+                        <h2><span class="legal-num">1</span> Datenschutz auf einen Blick</h2>
+                        <h3>Allgemeine Hinweise</h3>
+                        <p>
+                            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer nachstehend aufgeführten Datenschutzerklärung.
+                        </p>
+                        
+                        <h3>Datenerfassung auf dieser Website</h3>
+                        <p>
+                            <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber: OneLife EMS-Studio, Juri Baron, Auf dem Kampe 6, 31582 Nienburg/Weser. Die Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle“ dieser Datenschutzerklärung sowie dem Impressum entnehmen.
+                        </p>
+                        <p>
+                            <strong>Wie erfassen wir Ihre Daten?</strong><br>
+                            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei handelt es sich vor allem um Daten, die Sie in unseren interaktiven Funnel zur Buchung eines Probetrainings oder in ein Kontaktformular eingeben (z. B. Name, E-Mail-Adresse, Telefonnummer, sportliche Zielsetzung). Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+                        </p>
+                        <p>
+                            <strong>Wofür nutzen wir Ihre Daten?</strong><br>
+                            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens (z. B. zur Optimierung unserer Kampagnen via Google Analytics und Meta-Pixel) oder zur persönlichen Kontaktaufnahme zwecks Absprache Ihres kostenlosen EMS-Probetrainings verwendet werden.
+                        </p>
+                        <p>
+                            <strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+                            Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese jederzeit für die Zukunft widerrufen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Datenschutz-Aufsichtsbehörde zu.
+                        </p>
+                    </article>
 
-                    <h2>4. Datenerfassung auf dieser Website</h2>
-                    <h3>Kontaktformular (Interaktiver Funnel)</h3>
-                    <p>
-                        Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Name, E-Mail, Telefonnummer, sportliche Ziele, Firmenfitness-Status) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-                    </p>
-                    <p>
-                        Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen (Terminierung des Probetrainings) erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und/oder auf unseren berechtigten Interessen (Art. 6 Abs. 1 lit. f DSGVO), da wir ein berechtigtes Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen haben.
-                    </p>
-                    <p>
-                        Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
-                    </p>
+                    <!-- 2. Hosting & CDN -->
+                    <article class="legal-article" id="abschnitt-2">
+                        <h2><span class="legal-num">2</span> Hosting und Content Delivery Networks (CDN)</h2>
+                        <p>
+                            Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
+                        </p>
+                        
+                        <h3>Cloudflare Pages & Cloudflare R2 Media Storage</h3>
+                        <p>
+                            Anbieter ist die <strong>Cloudflare, Inc.</strong>, 101 Townsend St., San Francisco, CA 94107, USA (nachfolgend „Cloudflare“).
+                        </p>
+                        <p>
+                            Cloudflare Pages stellt ein globales Content Delivery Network (CDN) und Webhosting bereit. Das bedeutet, dass die Anfragen Ihres Browsers über ein weltweites Netz von Servern geroutet werden, um Ladezeiten zu minimieren und maximale Ausfallsicherheit sowie Schutz vor DDoS-Angriffen zu gewährleisten. Hierbei werden technisch bedingt Verbindungsdaten (einschließlich Ihrer IP-Adresse) durch Server von Cloudflare geleitet und in flüchtigen Server-Logs verarbeitet.
+                        </p>
+                        <p>
+                            Bilder, Videos und statische Website-Ressourcen werden über den Objektspeicher-Dienst <strong>Cloudflare R2</strong> (unter der Bereitstellungs-Domain <code>pub-b33108412309406a9a941ddc51e9a5b9.r2.dev</code>) blitzschnell und hochverfügbar ausgeliefert.
+                        </p>
+                        <p>
+                            Die Verwendung von Cloudflare erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen, ausfallsicheren und performanten Darstellung sowie Absicherung unserer Website.
+                        </p>
+                        <p>
+                            Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Cloudflare verfügt zudem über eine Zertifizierung nach dem <em>EU-U.S. Data Privacy Framework (DPF)</em>, welches das Schutzniveau für Datenübermittlungen in die USA rechtlich absichert. Details finden Sie in der <a href="https://www.cloudflare.com/de-de/privacypolicy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Cloudflare</a>.
+                        </p>
+                    </article>
+
+                    <!-- 3. Allgemeine Hinweise und Pflichtinformationen -->
+                    <article class="legal-article" id="abschnitt-3">
+                        <h2><span class="legal-num">3</span> Allgemeine Hinweise und Pflichtinformationen</h2>
+                        
+                        <h3>Hinweis zur verantwortlichen Stelle</h3>
+                        <p>
+                            Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
+                        </p>
+                        <div class="legal-contact-card">
+                            <p><strong>OneLife EMS-Studio</strong></p>
+                            <p>Inhaber: Juri Baron (Einzelunternehmer)</p>
+                            <p>Auf dem Kampe 6</p>
+                            <p>31582 Nienburg/Weser</p>
+                            <p>Deutschland</p>
+                            <p>Telefon: <a href="tel:050218890890">05021 - 8 890 890</a></p>
+                            <p>E-Mail: <a href="mailto:hello@onelife-nienburg.de">hello@onelife-nienburg.de</a></p>
+                            <p>Website: <a href="https://onelife-nienburg.de">onelife-nienburg.de</a></p>
+                        </div>
+                        <p>
+                            Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+                        </p>
+
+                        <h3>Speicherdauer</h3>
+                        <p>
+                            Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
+                        </p>
+
+                        <h3>Rechtsgrundlagen der Datenverarbeitung</h3>
+                        <p>
+                            Wir verarbeiten Ihre personenbezogenen Daten unter strenger Beachtung der gesetzlichen Vorschriften:
+                        </p>
+                        <ul>
+                            <li><strong>Einwilligung (Art. 6 Abs. 1 lit. a DSGVO / § 25 Abs. 1 TDDDG):</strong> Wenn Sie uns für bestimmte Verarbeitungsvorgänge (z. B. Tracking-Pixel, Marketing-Cookies) Ihre ausdrückliche Einwilligung erteilt haben.</li>
+                            <li><strong>Vertragserfüllung & vorvertragliche Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO):</strong> Für die Bearbeitung von Terminanfragen für ein Probetraining sowie die Durchführung unserer Trainingsvereinbarungen.</li>
+                            <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO):</strong> Zur technischen Stabilität, IT-Sicherheit, Betrugsprävention und wirtschaftlichen Optimierung unseres Online-Auftritts.</li>
+                        </ul>
+
+                        <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung (Art. 7 Abs. 3 DSGVO)</h3>
+                        <p>
+                            Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit mit Wirkung für die Zukunft formlos per E-Mail an <a href="mailto:hello@onelife-nienburg.de">hello@onelife-nienburg.de</a> widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
+                        </p>
+
+                        <h3>Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)</h3>
+                        <div class="legal-highlight-box">
+                            <p>
+                                <strong>WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN. DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING.</strong>
+                            </p>
+                        </div>
+
+                        <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+                        <p>
+                            Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes. Die für unser Studio in Niedersachsen zuständige Aufsichtsbehörde ist:
+                        </p>
+                        <div class="legal-contact-card">
+                            <p><strong>Die Landesbeauftragte für den Datenschutz Niedersachsen</strong></p>
+                            <p>Prinzenstraße 5, 30159 Hannover</p>
+                            <p>Telefon: +49 (0511) 120-4500</p>
+                            <p>E-Mail: <a href="mailto:poststelle@lfd.niedersachsen.de">poststelle@lfd.niedersachsen.de</a></p>
+                            <p>Website: <a href="https://lfd.niedersachsen.de" target="_blank" rel="noopener noreferrer">https://lfd.niedersachsen.de</a></p>
+                        </div>
+
+                        <h3>Weitere Betroffenenrechte</h3>
+                        <p>
+                            Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen folgende Rechte:
+                        </p>
+                        <ul>
+                            <li><strong>Recht auf Auskunft (Art. 15 DSGVO):</strong> Auskunft über Ihre von uns verarbeiteten Daten, deren Verarbeitungszwecke und Herkunft.</li>
+                            <li><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Berichtigung unrichtiger oder Vervollständigung unvollständiger personenbezogener Daten.</li>
+                            <li><strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Löschung Ihrer bei uns gespeicherten personenbezogenen Daten.</li>
+                            <li><strong>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Einschränkung der Datenverarbeitung bei Vorliegen bestimmter Voraussetzungen.</li>
+                            <li><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Erhalt Ihrer Daten in einem strukturierten, gängigen und maschinenlesbaren Format.</li>
+                        </ul>
+
+                        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+                        <p>
+                            Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Anfragen über unseren interaktiven Buchungs-Funnel, eine moderne SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
+                        </p>
+                    </article>
+
+                    <!-- 4. Datenerfassung auf dieser Website -->
+                    <article class="legal-article" id="abschnitt-4">
+                        <h2><span class="legal-num">4</span> Datenerfassung auf dieser Website</h2>
+
+                        <h3>Server-Log-Dateien</h3>
+                        <p>
+                            Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                        </p>
+                        <ul>
+                            <li>Browsertyp und Browserversion</li>
+                            <li>Verwendetes Betriebssystem</li>
+                            <li>Referrer URL (die zuvor besuchte Seite)</li>
+                            <li>Hostname des zugreifenden Rechners</li>
+                            <li>Uhrzeit der Serveranfrage</li>
+                            <li>IP-Adresse (in gekürzter/anonymisierter Form)</li>
+                        </ul>
+                        <p>
+                            Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website.
+                        </p>
+
+                        <h3>Cookies und Local Storage</h3>
+                        <p>
+                            Unsere Internetseiten verwenden teilweise so genannte Cookies oder Technologien des Local Storage Ihres Browsers. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Sie dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
+                        </p>
+                        <p>
+                            Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs erforderlich sind (notwendige Cookies), werden auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> gespeichert. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Speicherung ausschließlich auf Grundlage von <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> und <strong>§ 25 Abs. 1 TDDDG</strong>.
+                        </p>
+
+                        <h3>Kontaktformular & Interaktiver Lead-Funnel (Terminvereinbarung Probetraining)</h3>
+                        <p>
+                            Auf unserer Website bieten wir Ihnen einen interaktiven Funnel an, mit dem Sie in wenigen Schritten Ihr unverbindliches, kostenloses EMS-Probetraining bei OneLife Nienburg anfragen und terminieren können.
+                        </p>
+                        <p>
+                            Hierbei werden folgende Daten abgefragt und verarbeitet:
+                        </p>
+                        <ul>
+                            <li><strong>Sportliche Zielsetzung:</strong> Auswahl wie z. B. „Rückenschmerzen lindern“, „Abnehmen & Körper straffen“, „Muskeln aufbauen“ oder „Mehr Energie im Alltag“.</li>
+                            <li><strong>Trainingserfahrung / Fitnesslevel:</strong> Angaben über Ihre Vorerfahrung mit Fitness oder EMS-Training.</li>
+                            <li><strong>Firmenfitness-Status:</strong> Angabe, ob eine Mitgliedschaft über Partnerprogramme wie Hansefit, EGYM Wellpass, Epassi o. ä. besteht.</li>
+                            <li><strong>Kontaktdaten:</strong> Vor- und Nachname, E-Mail-Adresse sowie Telefonnummer zur telefonischen Abstimmung des Wunschtermins.</li>
+                        </ul>
+                        <p>
+                            <strong>Zweck der Datenverarbeitung:</strong> Die erhobenen Daten werden ausschließlich dazu verwendet, Ihre Terminanfrage vorzubereiten, Sie telefonisch oder per E-Mail zu kontaktieren, offene Fragen zum Ablauf des kabellosen EasyMotionSkin Trainings zu beantworten und das Probetraining im Studio (Auf dem Kampe 6, 31582 Nienburg) verbindlich zu koordinieren.
+                        </p>
+                        <p>
+                            <strong>Rechtsgrundlage:</strong> Die Verarbeitung dieser Daten erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Erfüllung vorvertraglicher Maßnahmen zur Terminabstimmung). Soweit Sie freiwillige zusätzliche Angaben machen, beruht die Verarbeitung auf Ihrer Einwilligung nach <strong>Art. 6 Abs. 1 lit. a DSGVO</strong>.
+                        </p>
+                        <p>
+                            <strong>Speicherdauer:</strong> Die im Rahmen des Lead-Funnels eingegebenen Daten verbleiben bei uns, bis der Zweck der Datenspeicherung entfällt (z. B. nach Durchführung des Probetrainings und abschließender Beratung) oder Sie uns zur Löschung auffordern bzw. Ihre Einwilligung widerrufen. Zwingende gesetzliche Bestimmungen – insbesondere steuerliche oder handelsrechtliche Aufbewahrungsfristen – bleiben unberührt.
+                        </p>
+
+                        <h3>Anfragen via E-Mail oder Telefon</h3>
+                        <p>
+                            Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Telefonnummer, Anliegen) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt, oder auf Grundlage unseres berechtigten Interesses an einer schnellen und effektiven Beantwortung (Art. 6 Abs. 1 lit. f DSGVO).
+                        </p>
+                    </article>
+
+                    <!-- 5. Analyse-Tools und Werbung -->
+                    <article class="legal-article" id="abschnitt-5">
+                        <h2><span class="legal-num">5</span> Analyse-Tools und Werbung</h2>
+
+                        <h3>Google Analytics 4</h3>
+                        <p>
+                            Diese Website nutzt Funktionen des Webanalysedienstes <strong>Google Analytics 4</strong>. Anbieter ist die <strong>Google Ireland Limited</strong> („Google“), Gordon House, Barrow Street, Dublin 4, Irland.
+                        </p>
+                        <p>
+                            Google Analytics verwendet Technologien, die eine Wiedererkennung des Nutzers zur Analyse des Nutzerverhaltens ermöglichen (z. B. Cookies oder Device-Fingerprinting). Die von Google erhobenen Informationen über die Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
+                        </p>
+                        <p>
+                            <strong>IP-Anonymisierung:</strong> Bei Google Analytics 4 ist die Anonymisierung von IP-Adressen standardmäßig voreingestellt. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum vor der Übertragung gekürzt.
+                        </p>
+                        <p>
+                            <strong>Rechtsgrundlage:</strong> Die Nutzung dieses Dienstes erfolgt ausschließlich auf Grundlage Ihrer ausdrücklichen Einwilligung gemäß <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> und <strong>§ 25 Abs. 1 TDDDG</strong>. Die Einwilligung ist jederzeit widerrufbar.
+                        </p>
+                        <p>
+                            <strong>Datenübertragung in Drittstaaten:</strong> Google LLC ist nach dem EU-U.S. Data Privacy Framework zertifiziert. Wir haben mit Google einen Vertrag zur Auftragsverarbeitung (Data Processing Addendum) abgeschlossen.
+                        </p>
+                        <p>
+                            <strong>Widerspruch gegen Datenerfassung (Opt-Out):</strong> Sie können die Erfassung Ihrer Daten durch Google Analytics verhindern, indem Sie das unter folgendem Link verfügbare Browser-Plugin herunterladen und installieren: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout?hl=de</a>.
+                        </p>
+
+                        <h3>Meta-Pixel (ehemals Facebook- & Instagram-Pixel)</h3>
+                        <p>
+                            Diese Website nutzt zur Konversionsmessung und Zielgruppenoptimierung das Besucheraktions-Pixel von <strong>Meta</strong>. Anbieter ist die <strong>Meta Platforms Ireland Limited</strong>, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland (nachfolgend „Meta“).
+                        </p>
+                        <p>
+                            Mithilfe des Meta-Pixels kann das Verhalten der Seitenbesucher nachverfolgt werden, nachdem diese durch Klick auf eine Instagram- oder Facebook-Werbeanzeige auf die Website des Anbieters weitergeleitet wurden. Dadurch können wir die Wirksamkeit von Werbeanzeigen für statistische und Marktforschungszwecke auswerten und zukünftige Werbemaßnahmen optimieren.
+                        </p>
+                        <p>
+                            Die erhobenen Daten sind für uns als Betreiber dieser Website anonym; wir können keine Rückschlüsse auf die Identität der Nutzer ziehen. Die Daten werden jedoch von Meta gespeichert und verarbeitet, sodass eine Verbindung zum jeweiligen Nutzerprofil möglich ist und Meta die Daten für eigene Werbezwecke, entsprechend der <a href="https://www.facebook.com/about/privacy/" target="_blank" rel="noopener noreferrer">Meta-Datenrichtlinie</a>, verwenden kann.
+                        </p>
+                        <p>
+                            <strong>Rechtsgrundlage:</strong> Die Nutzung des Meta-Pixels erfolgt auf Grundlage Ihrer Einwilligung gemäß <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> und <strong>§ 25 Abs. 1 TDDDG</strong>. Die Einwilligung ist jederzeit mit Wirkung für die Zukunft widerrufbar.
+                        </p>
+                        <p>
+                            <strong>Opt-Out:</strong> Sie können das Remarketing-Feature „Custom Audiences“ in den Einstellungen für Werbeanzeigen Ihres Facebook- bzw. Instagram-Kontos deaktivieren unter: <a href="https://www.facebook.com/adpreferences/ad_settings" target="_blank" rel="noopener noreferrer">https://www.facebook.com/adpreferences/ad_settings</a>.
+                        </p>
+                    </article>
+
+                    <!-- 6. Plugins, Bewertungen & Karten -->
+                    <article class="legal-article" id="abschnitt-6">
+                        <h2><span class="legal-num">6</span> Plugins, Bewertungen und externe Dienste</h2>
+
+                        <h3>Google Bewertungen & Google Places API</h3>
+                        <p>
+                            Auf unserer Website binden wir verifizierte Kundenrezensionen und Bewertungssterne aus unserem offiziellen Google-Unternehmensprofil („Google My Business“ / Google Places) ein. Anbieter ist die <strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4, Irland.
+                        </p>
+                        <p>
+                            Die Anzeige dieser Bewertungen dient der transparenten Darstellung unserer Studioqualität, Kundenzufriedenheit und Trainererfolge.
+                        </p>
+                        <p>
+                            Auf unserer Website verlinken wir an mehreren Stellen mit interaktiven Buttons direkt auf den Google-Dialog zur Einreichung einer Bewertung:
+                        </p>
+                        <div class="legal-highlight-box">
+                            <p>
+                                <strong>Google Bewertungs-Link:</strong><br>
+                                <a href="https://search.google.com/local/writereview?placeid=ChIJK2e3XFOMsEcRyJWmjAh1tcE" target="_blank" rel="noopener noreferrer">https://search.google.com/local/writereview?placeid=ChIJK2e3XFOMsEcRyJWmjAh1tcE</a> (Place-ID: <code>ChIJK2e3XFOMsEcRyJWmjAh1tcE</code>)
+                            </p>
+                        </div>
+                        <p>
+                            Hierbei handelt es sich um eine externe Verlinkung. Erst wenn Sie auf den Bewertungs-Button klicken, verlassen Sie unsere Website und werden direkt auf Server von Google weitergeleitet. Ab diesem Moment erfolgt die Datenverarbeitung unter der alleinigen Verantwortung von Google gemäß den dortigen <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzbestimmungen von Google</a>.
+                        </p>
+                        <p>
+                            <strong>Rechtsgrundlage:</strong> Die Einbindung und Verlinkung stützt sich auf unser berechtigtes Interesse an einer authentischen und vertrauensvollen Unternehmenspräsentation gemäß <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>.
+                        </p>
+
+                        <h3>Google Maps</h3>
+                        <p>
+                            Diese Seite nutzt über eine Schnittstelle (API) den Kartendienst <strong>Google Maps</strong>. Anbieter ist die <strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4, Irland.
+                        </p>
+                        <p>
+                            Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Betreiber dieser Seite hat keinen Einfluss auf diese Datenübertragung. Wenn Google Maps aktiviert ist, kann Google zum Zwecke der einheitlichen Darstellung der Schriftarten Google Fonts verwenden.
+                        </p>
+                        <p>
+                            Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit des Standorts unseres EMS-Studios in Nienburg/Weser (Auf dem Kampe 6, 31582 Nienburg). Dies stellt ein berechtigtes Interesse im Sinne von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> dar. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> und <strong>§ 25 Abs. 1 TDDDG</strong>.
+                        </p>
+                        <p>
+                            Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.
+                        </p>
+                    </article>
+
+                    <!-- 7. Social Media, Webfonts & Sicherheit -->
+                    <article class="legal-article" id="abschnitt-7">
+                        <h2><span class="legal-num">7</span> Social Media, Webfonts & Schlussbestimmungen</h2>
+
+                        <h3>Social Media Präsenzen & Verlinkungen</h3>
+                        <p>
+                            Wir unterhalten öffentlich zugängliche Profile in sozialen Netzwerken, um unser Studio vorzustellen und mit Interessenten in Kontakt zu treten:
+                        </p>
+                        <ul>
+                            <li><strong>Instagram:</strong> Offizielles Profil <a href="https://www.instagram.com/onelifenienburgbyjuribaron/" target="_blank" rel="noopener noreferrer">@onelifenienburgbyjuribaron</a> (Meta Platforms Ireland Limited, Dublin, Irland).</li>
+                            <li><strong>Facebook:</strong> OneLife EMS-Studio Nienburg (Meta Platforms Ireland Limited, Dublin, Irland).</li>
+                        </ul>
+                        <p>
+                            <strong>Keine automatische Datenweitergabe:</strong> Auf unserer Website sind lediglich standardmäßige HTML-Hyperlinks zu unseren Social-Media-Kanälen eingebunden (keine dynamischen Share-Buttons, die ohne Ihr Zutun bereits beim Seitenaufruf Nutzerdaten an Facebook oder Instagram übermitteln). Erst wenn Sie bewusst auf einen der Social-Buttons klicken, werden Sie zu der jeweiligen Plattform weitergeleitet.
+                        </p>
+
+                        <h3>Google Web Fonts</h3>
+                        <p>
+                            Diese Seite nutzt zur einheitlichen und performanten Darstellung von Schriftarten Web Fonts (u. a. Inter, Plus Jakarta Sans, Space Grotesk). Die Einbindung erfolgt über optimierte Server-Caches bzw. Cloudflare CDN-Pfade, sodass bei der Auslieferung der Schriftdateien Ihre Privatsphäre gewahrt bleibt.
+                        </p>
+                        <p>
+                            Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer einheitlichen, typografisch ansprechenden Gestaltung unserer Website).
+                        </p>
+
+                        <h3>Aktualität und Änderung dieser Datenschutzerklärung</h3>
+                        <p>
+                            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong>Oktober 2026</strong>.
+                        </p>
+                        <p>
+                            Durch die Weiterentwicklung unserer Website, die Integration neuer Technologien oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung von Zeit zu Zeit anzupassen. Die jeweils aktuelle Version kann jederzeit auf dieser Seite abgerufen werden.
+                        </p>
+                    </article>
+
                 </div>
                 
             </div>
@@ -158,8 +588,42 @@
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" alt="OneLife Nienburg Logo" class="footer-logo">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" alt="OneLife Nienburg Logo" class="footer-logo">
+                </a>
                 <p class="footer-tagline">Premium EMS & Personal Training in Nienburg/Weser.</p>
+                
+                <div class="footer-trust-row">
+                    <!-- Google 5-Star Badge in Footer (Direct Write-Review Link) -->
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJK2e3XFOMsEcRyJWmjAh1tcE" target="_blank" rel="noopener noreferrer" class="footer-google-badge" title="Jetzt eigene Google-Bewertung für OneLife schreiben">
+                        <span class="f-g-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                        </span>
+                        <div class="f-g-text">
+                            <div class="f-g-stars">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                <span class="f-g-score">5.0</span>
+                            </div>
+                            <span class="f-g-sub">Über 700+ Google-Bewertungen</span>
+                        </div>
+                    </a>
+
+                    <div class="footer-social-links">
+                        <a href="https://www.instagram.com/onelifenienburgbyjuribaron/" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="OneLife Nienburg auf Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.facebook.com/onelife.nienburg" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="OneLife Nienburg auf Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-links-grid">
@@ -172,10 +636,17 @@
                     </p>
                 </div>
                 <div class="footer-col">
+                    <h4 class="footer-heading">Kontakt</h4>
+                    <p class="footer-info">
+                        Telefon: 05021 - 8 890 890<br>
+                        E-Mail: hello@onelife-nienburg.de
+                    </p>
+                </div>
+                <div class="footer-col">
                     <h4 class="footer-heading">Rechtliches</h4>
                     <nav class="footer-nav" aria-label="Rechtliche Navigation">
                         <a href="impressum.html" class="footer-link">Impressum</a>
-                        <a href="datenschutz.html" class="footer-link">Datenschutz</a>
+                        <a href="datenschutz.html" class="footer-link active">Datenschutz</a>
                         <a href="barrierefreiheit.html" class="footer-link">Barrierefreiheit</a>
                     </nav>
                 </div>
