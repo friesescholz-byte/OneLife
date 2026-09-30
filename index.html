@@ -14,7 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="index.css">
@@ -97,10 +97,21 @@
             <div class="hero-container">
                 <div class="hero-content">
                     
-                    <!-- Clean Award Label (Ohne Pokal-Emoji) -->
-                    <div class="hero-award-badge fade-in">
-                        <span class="award-dot"></span>
-                        <span class="award-text">Deutschlands bestes &amp; erfolgreichstes EMS-Studio</span>
+                    <!-- Hero Social Proof Badge: 5.0 Google Bewertungen -->
+                    <div class="hero-top-badges-wrap fade-in">
+                        <a href="#testimonials" class="hero-google-proof-badge" title="Zu den über 700+ Google-Bewertungen springen">
+                            <div class="google-g-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                </svg>
+                            </div>
+                            <span class="proof-stars">★★★★★</span>
+                            <span class="proof-score">5.0</span>
+                            <span class="proof-count">Über 700+ Google-Bewertungen</span>
+                        </a>
                     </div>
 
                     <h1 class="hero-title fade-in">25 Minuten.<br>Dein Körper.<br><span class="accent-text text-glow">Dein Champion.</span></h1>
@@ -121,23 +132,22 @@
                         <a href="#usps" class="btn btn-secondary btn-lg">Warum OneLife</a>
                     </div>
                     
-                    <!-- Reine Firmenpartner Logos (Minimalistisch, ohne Textüberladung) -->
+                    <!-- Authentische Partner & Firmenfitness Logos (Größer, gestochen scharfe R2 SVGs) -->
                     <div class="hero-partner-logos fade-in" id="firmenfitness">
-                        <div class="partner-logo-item" title="Hansefit">
-                            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                            <span>HANSEFIT</span>
-                        </div>
-                        <div class="partner-logo-item" title="EGYM Wellpass">
-                            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-5"/></svg>
-                            <span>EGYM <span class="logo-light">WELLPASS</span></span>
-                        </div>
-                        <div class="partner-logo-item" title="E-Passy">
-                            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                            <span>E-PASSY</span>
-                        </div>
-                        <div class="partner-logo-item" title="EasyMotionSkin">
-                            <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                            <span>EasyMotion<span class="logo-light">Skin</span></span>
+                        <span class="hero-partner-label">Zertifizierte Firmenfitness- &amp; Technologie-Partner:</span>
+                        <div class="partner-logos-grid">
+                            <div class="partner-logo-item" title="Hansefit Firmenfitness">
+                                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logos/hansefit.svg" alt="Hansefit Firmenfitness Logo" class="partner-logo-img logo-hansefit" loading="eager">
+                            </div>
+                            <div class="partner-logo-item" title="EGYM Wellpass Firmenfitness">
+                                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logos/egym_wellpass.svg" alt="EGYM Wellpass Logo" class="partner-logo-img logo-wellpass" loading="eager">
+                            </div>
+                            <div class="partner-logo-item" title="Epassi Firmenfitness">
+                                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logos/epassi.svg" alt="Epassi Firmenfitness Logo" class="partner-logo-img logo-epassi" loading="eager">
+                            </div>
+                            <div class="partner-logo-item" title="EasyMotionSkin Hightech EMS">
+                                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logos/easymotionskin.svg" alt="EasyMotionSkin Logo" class="partner-logo-img logo-ems" loading="eager">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -435,14 +445,25 @@
                     </div>
                     
                     <div class="award-video-box">
-                        <video class="award-video" poster="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop" playsinline preload="metadata">
-                            <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Hero/Onlife_Start%20video.mp4" type="video/mp4">
+                        <video class="award-video" id="award-main-video" poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/award_best_performer_2024_poster.webp" playsinline preload="metadata" loop>
+                            <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/award_best_performer_2024.mp4" type="video/mp4">
                         </video>
-                        <div class="award-video-overlay">
-                            <div class="award-play-btn" title="Auszeichnungsvideo ansehen">
+                        <div class="award-video-overlay" id="award-video-overlay">
+                            <div class="award-play-btn" id="award-play-trigger" title="Auszeichnungsvideo ansehen">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px; margin-left: 3px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </div>
                         </div>
+                        <button class="award-mute-btn" id="award-mute-toggle" aria-label="Ton ein-/ausschalten" title="Ton stummschalten/aktivieren">
+                            <svg class="icon-mute-state icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                            </svg>
+                            <svg class="icon-mute-state icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                <line x1="23" y1="9" x2="17" y2="15"/>
+                                <line x1="17" y1="9" x2="23" y2="15"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -579,7 +600,7 @@
                         <div class="google-rating-summary">
                             <span class="google-stars">★★★★★</span>
                             <span class="google-score">5.0 / 5.0</span>
-                            <span style="font-size: 14px; color: var(--color-text-muted);">(Über 80 verifizierte Google-Rezensionen)</span>
+                            <span class="google-verified-count">(Über 700 verifizierte Google-Bewertungen mit glatten 5 Sternen)</span>
                         </div>
                         <a href="#lead-form" class="btn btn-secondary btn-sm">Jetzt eigenes Feedback starten ➔</a>
                     </div>
@@ -635,27 +656,41 @@
             </div>
         </section>
 
-        <!-- Juri Baron Portrait & Story -->
+        <!-- Juri Baron Portrait & Story Section -->
         <section class="story-section" id="story">
-            <div class="section-container grid-2-col">
-                <div class="story-image-wrapper">
-                    <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/juri-baron-ems-personaltrainier.png" alt="Juri Baron - 2x Sportler des Jahres und Inhaber von OneLife" class="story-image">
-                </div>
-                
-                <div class="story-content">
-                    <span class="section-subtitle">Vom 2-fachen Sportler des Jahres lernen</span>
-                    <h2 class="section-title">„Wer will, findet Wege. Wer nicht will, findet Ausreden.“</h2>
-                    <p class="story-highlight-text">Als ehemaliger Bundesliga-Ringer und <strong>2-facher Sportler des Jahres</strong> (einmal in Bonn und einmal in Nienburg) weiß ich ganz genau, wie man einen Körper zu Höchstleistungen antreibt – aber auch, wie man ihn nach Verletzungen sicher schont und stabilisiert.</p>
+            <div class="section-container">
+                <div class="story-grid-layout">
                     
-                    <div class="story-body">
-                        <p>„Im Leistungssport gibt es keine Abkürzungen. Aber es gibt klügere Methoden. Als ich das kabellose EMS-System von EasyMotionSkin zum ersten Mal getestet habe, war ich verblüfft: Muskelaufbau und Gelenkschutz in nur 25 Minuten pro Woche, ohne lästige nasse Westen oder einschränkende Kabel.</p>
-                        <p>Ich habe OneLife Nienburg gegründet, um diese bahnbrechende Effizienz aus dem Profi-Sport zu dir zu bringen. Zusammen mit meinem Team aus lizenzierten Trainern erstellen wir einen genauen Plan, der auf deine Herausforderungen abgestimmt ist. Hier trainierst du nicht alleine. Wir begleiten dich bei jedem Schritt.“</p>
+                    <!-- Media Column: Founder Portrait Card -->
+                    <div class="story-portrait-wrapper">
+                        <div class="story-portrait-card">
+                            <div class="portrait-image-wrap">
+                                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/juri_baron.webp" alt="Juri Baron - 2x Sportler des Jahres und Gründer von OneLife" class="story-image" loading="eager">
+                            </div>
+                            <div class="portrait-caption">
+                                <span class="founder-name">Juri Baron</span>
+                                <span class="founder-title">Gründer &amp; Bundesliga-Ringer • 2× Sportler des Jahres</span>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="story-author-meta">
-                        <span class="author-name">Juri Baron</span>
-                        <span class="author-title">Gründer &amp; Inhaber • 2× Sportler des Jahres (Bonn &amp; Nienburg)</span>
+
+                    <!-- Story Text Column -->
+                    <div class="story-content">
+                        <span class="section-subtitle">Vom 2-fachen Sportler des Jahres lernen</span>
+                        <h2 class="section-title">„Wer will, findet Wege. Wer nicht will, findet Ausreden.“</h2>
+                        <p class="story-highlight-text">Als ehemaliger Bundesliga-Ringer und <strong>2-facher Sportler des Jahres</strong> (einmal in Bonn und einmal in Nienburg) weiß ich ganz genau, wie man einen Körper zu Höchstleistungen antreibt – aber auch, wie man ihn nach Verletzungen sicher schont und stabilisiert.</p>
+                        
+                        <div class="story-body">
+                            <p>„Im Leistungssport gibt es keine Abkürzungen. Aber es gibt klügere Methoden. Als ich das kabellose EMS-System von EasyMotionSkin zum ersten Mal getestet habe, war ich verblüfft: Muskelaufbau und Gelenkschutz in nur 25 Minuten pro Woche, ohne lästige nasse Westen oder einschränkende Kabel.</p>
+                            <p>Ich habe OneLife Nienburg gegründet, um diese bahnbrechende Effizienz aus dem Profi-Sport zu dir zu bringen. Zusammen mit meinem Team aus lizenzierten Trainern erstellen wir einen genauen Plan, der auf deine Herausforderungen abgestimmt ist. Hier trainierst du nicht alleine. Wir begleiten dich bei jedem Schritt.“</p>
+                        </div>
+                        
+                        <div class="story-author-meta">
+                            <span class="author-name">Juri Baron</span>
+                            <span class="author-title">Gründer &amp; Inhaber • 2× Sportler des Jahres (Bonn &amp; Nienburg) • Deutscher Meister EMS 2024</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -721,7 +756,7 @@
             </div>
         </section>
 
-        <!-- Visual Step Explanation Section -->
+        <!-- Visual Step Explanation Section (Dark Gym Atmosphere) -->
         <section class="ems-explain-section" id="ems-how">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -774,6 +809,8 @@
                     </div>
                 </div>
             </div>
+        </section>
+
         <!-- FAQ Section (Häufig gestellte Fragen) -->
         <section class="faq-section" id="faq">
             <div class="section-container">
@@ -1091,7 +1128,7 @@
                     <span style="color: #F4B400; font-size: 18px;">★★★★★</span>
                     <div>
                         <span style="font-weight: 700; color: #ffffff; font-size: 14px;">5.0 Sterne bei Google</span>
-                        <span style="display: block; font-size: 11px; color: var(--color-text-muted);">Über 80 echte Kundenbewertungen</span>
+                        <span style="display: block; font-size: 11px; color: var(--color-text-muted);">Über 700 echte 5-Sterne-Bewertungen</span>
                     </div>
                 </div>
 

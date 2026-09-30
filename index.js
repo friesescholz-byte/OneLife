@@ -343,34 +343,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // 6. Award Video Player Interaction
+    // 6. Award Video Player Interaction (Instagram Reel / Trophy Video)
     // ==========================================================================
     const awardVideoBox = document.querySelector('.award-video-box');
     if (awardVideoBox) {
         const awardVideo = awardVideoBox.querySelector('video');
         const awardPlayBtn = awardVideoBox.querySelector('.award-play-btn');
-        const awardOverlay = awardVideoBox.querySelector('.award-video-overlay');
+        const awardMuteBtn = document.getElementById('award-mute-toggle');
 
-        if (awardVideo && awardPlayBtn) {
-            awardPlayBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
+        if (awardVideo) {
+            const togglePlay = () => {
                 if (awardVideo.paused) {
-                    awardVideo.play();
-                    awardOverlay.style.opacity = '0';
-                    awardOverlay.style.pointerEvents = 'none';
-                    awardVideo.controls = true;
+                    awardVideo.play().then(() => {
+                        awardVideoBox.classList.add('is-playing');
+                    }).catch(err => {
+                        console.log('Video autoplay prevented:', err);
+                    });
                 } else {
                     awardVideo.pause();
-                    awardOverlay.style.opacity = '1';
-                    awardOverlay.style.pointerEvents = 'auto';
-                    awardVideo.controls = false;
+                    awardVideoBox.classList.remove('is-playing');
                 }
+            };
+
+            if (awardPlayBtn) {
+                awardPlayBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    togglePlay();
+                });
+            }
+
+            awardVideo.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
             });
 
             awardVideo.addEventListener('pause', () => {
-                awardOverlay.style.opacity = '1';
-                awardOverlay.style.pointerEvents = 'auto';
+                awardVideoBox.classList.remove('is-playing');
             });
+
+            awardVideo.addEventListener('ended', () => {
+                awardVideoBox.classList.remove('is-playing');
+            });
+
+            // Mute / Unmute toggle
+            if (awardMuteBtn) {
+                awardMuteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    awardVideo.muted = !awardVideo.muted;
+                    const unmutedIcon = awardMuteBtn.querySelector('.icon-unmuted');
+                    const mutedIcon = awardMuteBtn.querySelector('.icon-muted');
+                    if (awardVideo.muted) {
+                        if (mutedIcon) mutedIcon.style.display = 'block';
+                        if (unmutedIcon) unmutedIcon.style.display = 'none';
+                    } else {
+                        if (mutedIcon) mutedIcon.style.display = 'none';
+                        if (unmutedIcon) unmutedIcon.style.display = 'block';
+                    }
+                });
+            }
         }
     }
 
