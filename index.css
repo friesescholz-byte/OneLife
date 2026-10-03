@@ -1440,9 +1440,9 @@ a {
 
 .crew-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1462,7 +1462,7 @@ a {
 
 .crew-card-media {
     position: relative;
-    height: 460px;
+    height: 390px;
     overflow: hidden;
     background-color: #0b0e14;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
@@ -2963,6 +2963,15 @@ a {
     .tiled-transition-divider,
     .tiled-transition-svg {
         height: 52px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .crew-card-media {
+        height: 280px;
     }
 
     .btn-special-cta {
