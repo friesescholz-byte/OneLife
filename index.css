@@ -388,14 +388,14 @@ a {
 }
 
 .site-logo {
-    height: 48px;
+    height: 78px;
     width: auto;
     object-fit: contain;
-    transition: var(--transition-smooth);
+    transition: height 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .main-header.scrolled .site-logo {
-    height: 40px;
+    height: 48px;
 }
 
 .desktop-nav {
@@ -566,27 +566,26 @@ a {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 130px;
     padding-bottom: 60px;
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(8, 10, 15, 0.90) 0%, 
+            rgba(8, 10, 15, 0.74) 42%, 
+            rgba(8, 10, 15, 0.38) 100%
+        ),
+        linear-gradient(180deg, 
+            rgba(8, 10, 15, 0.65) 0%, 
+            rgba(8, 10, 15, 0.20) 35%, 
+            rgba(8, 10, 15, 0.70) 75%, 
+            var(--color-bg) 100%
+        ),
+        url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_01.webp');
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     overflow: hidden;
-}
-
-.hero-video-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-video,
-.hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
 }
 
 .hero-overlay {
@@ -595,11 +594,8 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, 
-        rgba(8, 10, 15, 0.7) 0%, 
-        rgba(8, 10, 15, 0.9) 70%, 
-        var(--color-bg) 100%
-    );
+    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-container {
@@ -1042,8 +1038,8 @@ a {
     /* Clean architectural tile grid with smooth black fade entering from top and bottom */
     background-image: 
         linear-gradient(180deg, #080A0F 0%, transparent 22%, transparent 78%, #080A0F 100%),
-        radial-gradient(ellipse 70% 35% at 50% 20%, rgba(0, 160, 84, 0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 70% 35% at 50% 80%, rgba(0, 160, 84, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 35% at 50% 20%, rgba(0, 160, 84, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 35% at 50% 80%, rgba(0, 160, 84, 0.09) 0%, transparent 70%),
         radial-gradient(ellipse 60% 45% at 50% 50%, rgba(14, 22, 35, 0.40) 0%, transparent 80%),
         linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
@@ -1056,11 +1052,11 @@ a {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(0, 160, 84, 0.22) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 160, 84, 0.24) 1px, transparent 1px);
     background-size: 36px 36px;
     background-position: -0.5px -0.5px;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.65;
     mask-image: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 20%, black 80%, transparent 100%);
 }
@@ -1079,66 +1075,51 @@ a {
     color: #94A3B8;
 }
 
-.problems-section .problems-editorial-list {
-    display: flex;
-    flex-direction: column;
-    gap: 72px;
+/* Problems 2x2 Grid (2 Kacheln nebeneinander) */
+.problems-section .problems-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1080px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
-.problems-section .problem-editorial-item {
-    display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap: 60px;
-    align-items: center;
-    padding-bottom: 72px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.problems-section .problem-editorial-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.problems-section .problem-editorial-item.reverse {
-    grid-template-columns: 1.15fr 1fr;
-}
-
-.problems-section .problem-editorial-item.reverse .problem-editorial-media {
-    order: 2;
-}
-
-.problems-section .problem-editorial-item.reverse .problem-editorial-content {
-    order: 1;
-}
-
-.problems-section .problem-editorial-media {
-    position: relative;
-    width: 100%;
-    height: 380px;
+.problem-card {
+    background: rgba(12, 17, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 20px;
-    overflow: hidden;
-    background-color: #0A0E17;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 160, 84, 0.05);
-}
-
-.problems-section .problem-editorial-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.problems-section .problem-editorial-item:hover .problem-editorial-img {
-    transform: scale(1.05);
-}
-
-.problems-section .problem-editorial-content {
+    padding: 28px 30px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     display: flex;
     flex-direction: column;
     gap: 16px;
+    transition: var(--transition-smooth);
+}
+
+.problem-card:hover {
+    border-color: rgba(0, 160, 84, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 25px rgba(0, 160, 84, 0.12);
+}
+
+.problem-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.problem-num {
+    font-family: var(--font-headings);
+    font-size: 14px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.08em;
 }
 
 .problems-section .problem-quote-badge {
@@ -1467,14 +1448,30 @@ a {
 }
 
 /* ==========================================================================
-   Juri Baron Story Section
-/* ==========================================================================
-   Juri Baron Story Section (Dark Editorial Theme)
+   Juri Baron Story Section (Feststehender Parallax-Hintergrund mit Studio-Motiv)
    ========================================================================== */
 .story-section {
-    padding: var(--section-padding);
-    background-color: var(--color-bg);
     position: relative;
+    padding: var(--section-padding);
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(8, 10, 15, 0.8) 0%, 
+            rgba(8, 10, 15, 0.65) 45%, 
+            rgba(8, 10, 15, 0.78) 100%
+        ),
+        linear-gradient(180deg, 
+            rgba(8, 10, 15, 0.85) 0%, 
+            rgba(8, 10, 15, 0.45) 45%, 
+            rgba(8, 10, 15, 0.85) 100%
+        ),
+        url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Studio_Lounge_Bg.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
 }
 
 .story-grid-layout {
@@ -1551,6 +1548,16 @@ a {
 }
 
 /* Story Text Column in Dark Theme */
+.story-content {
+    background: rgba(13, 17, 26, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 44px 48px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+
 .story-content .section-subtitle {
     display: inline-block;
     color: var(--color-primary-glow);
@@ -2389,38 +2396,24 @@ a {
 
 .usp-media-chair {
     position: relative;
-    height: 260px;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 160, 84, 0.2) 0%, rgba(11, 15, 23, 0.85) 70%, #0b0e14 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    height: 240px;
     overflow: hidden;
-}
-
-.chair-glow-backdrop {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 200, 83, 0.28) 0%, transparent 70%);
-    filter: blur(25px);
-    pointer-events: none;
+    background-color: #0A0E17;
 }
 
 .usp-img-chair {
-    object-fit: contain !important;
+    width: 100% !important;
     height: 100% !important;
-    max-height: 220px !important;
-    width: auto !important;
-    filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.75));
+    object-fit: cover !important;
+    object-position: center 25%;
+    max-height: none !important;
+    filter: brightness(0.95) contrast(1.05);
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    position: relative;
-    z-index: 1;
+    display: block;
 }
 
 .usp-card-chair:hover .usp-img-chair {
-    transform: scale(1.08) translateY(-4px);
+    transform: scale(1.06);
 }
 
 /* ==========================================================================
@@ -2452,15 +2445,62 @@ a {
     line-height: 1.6;
 }
 
+.brochure-pillars-grid-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.pillars-ekg-backdrop {
+    position: absolute;
+    top: -24px;
+    left: -4%;
+    width: 108%;
+    height: calc(100% + 48px);
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.pillars-ekg-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.ekg-path.ekg-primary {
+    animation: ekg-pulse-glow 3.5s ease-in-out infinite;
+}
+
+.ekg-path.ekg-subtle {
+    opacity: 0.5;
+}
+
+@keyframes ekg-pulse-glow {
+    0%, 100% {
+        opacity: 0.75;
+        filter: drop-shadow(0 0 6px rgba(0, 200, 83, 0.45));
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 14px rgba(0, 230, 118, 0.85));
+    }
+}
+
 .brochure-pillars-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .pillar-card {
-    background: var(--color-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+    background: rgba(16, 21, 30, 0.74);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -2470,9 +2510,10 @@ a {
 }
 
 .pillar-card:hover {
-    border-color: rgba(0, 160, 84, 0.35);
+    background: rgba(16, 21, 30, 0.9);
+    border-color: rgba(0, 200, 83, 0.45);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(0, 200, 83, 0.18);
 }
 
 .pillar-icon-box {
@@ -2505,25 +2546,39 @@ a {
 }
 
 /* ==========================================================================
-   Award & Social Proof Section
+   Award & Social Proof Section (Feststehender Parallax-Hintergrund mit Hero-Effekt)
    ========================================================================== */
 .award-section {
+    position: relative;
     padding: var(--section-padding);
-    background: linear-gradient(180deg, var(--color-bg) 0%, rgba(16, 21, 30, 0.7) 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-image: 
+        linear-gradient(180deg, 
+            rgba(8, 10, 15, 0.88) 0%, 
+            rgba(8, 10, 15, 0.78) 50%, 
+            rgba(8, 10, 15, 0.92) 100%
+        ),
+        url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Hero/Onelife_Back_01.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
 }
 
 .award-card {
-    background: var(--color-card);
-    border: 1px solid rgba(217, 162, 74, 0.25);
+    background: rgba(13, 17, 26, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(217, 162, 74, 0.35);
     border-radius: 24px;
     padding: 48px;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 48px;
     align-items: center;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(217, 162, 74, 0.12);
 }
 
 .award-content .badge-award-pill {
@@ -3217,6 +3272,10 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .award-section {
+        background-attachment: scroll;
+    }
+
     .faq-question {
         padding: 20px 20px;
     }
@@ -3230,34 +3289,46 @@ a {
         font-size: 14px;
     }
 
-    .problems-editorial-list {
-        gap: 48px;
+    .hero-section {
+        background-attachment: scroll;
     }
 
-    .problems-section .problem-editorial-item,
-    .problems-section .problem-editorial-item.reverse {
+    .site-logo {
+        height: 58px;
+    }
+
+    .main-header.scrolled .site-logo {
+        height: 42px;
+    }
+
+    .problems-section {
+        padding: 70px 0 85px 0;
+        background-attachment: scroll;
+    }
+
+    .problems-section .problems-cards-grid {
         grid-template-columns: 1fr;
-        gap: 22px;
-        padding-bottom: 48px;
+        gap: 18px;
     }
 
-    .problems-section .problem-editorial-media,
-    .problems-section .problem-editorial-item .problem-editorial-media,
-    .problems-section .problem-editorial-item.reverse .problem-editorial-media {
-        order: 1 !important;
-        width: 100%;
-        height: 260px;
-    }
-
-    .problems-section .problem-editorial-content,
-    .problems-section .problem-editorial-item .problem-editorial-content,
-    .problems-section .problem-editorial-item.reverse .problem-editorial-content {
-        order: 2 !important;
-        width: 100%;
+    .problem-card {
+        padding: 22px 20px;
+        border-radius: 16px;
     }
 
     .problem-solution-title {
-        font-size: 24px;
+        font-size: 20px;
+        line-height: 1.25;
+    }
+
+    .problems-section .problem-quote-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .problems-section .problem-point {
+        padding: 10px 14px;
+        font-size: 13.5px;
     }
     
     .slider-track {
@@ -3288,6 +3359,15 @@ a {
     .story-grid-layout {
         grid-template-columns: 1fr;
         gap: 36px;
+    }
+
+    .story-section {
+        background-attachment: scroll;
+    }
+
+    .story-content {
+        padding: 32px 24px;
+        border-radius: 20px;
     }
 
     .story-portrait-card {
@@ -3330,8 +3410,44 @@ a {
 }
 
 @media (max-width: 480px) {
+    .main-header {
+        padding: 12px 0;
+    }
+    
+    .main-header.scrolled {
+        padding: 8px 0;
+    }
+
+    .site-logo {
+        height: 52px;
+        max-width: 170px;
+    }
+
+    .main-header.scrolled .site-logo {
+        height: 38px;
+        max-width: 140px;
+    }
+
     .section-container {
         padding: 0 16px;
+    }
+
+    .problems-section {
+        padding: 55px 0 70px 0;
+    }
+
+    .problem-card {
+        padding: 18px 16px;
+    }
+
+    .problem-solution-title {
+        font-size: 18px;
+    }
+
+    .problems-section .problem-point {
+        padding: 9px 12px;
+        font-size: 13px;
+        gap: 10px;
     }
 
     .hero-title {
@@ -3393,22 +3509,6 @@ a {
         width: 100%;
     }
 
-    .problems-section .problem-editorial-media,
-    .problems-section .problem-editorial-item .problem-editorial-media,
-    .problems-section .problem-editorial-item.reverse .problem-editorial-media {
-        height: 210px;
-    }
-    
-    .problem-solution-title {
-        font-size: 21px;
-    }
-    
-    .problem-quote-badge {
-        font-size: 12px;
-        padding: 6px 12px;
-        line-height: 1.35;
-    }
-    
     .slide-card {
         width: 200px;
         height: 350px;

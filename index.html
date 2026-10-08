@@ -28,7 +28,7 @@
     <header class="main-header" id="main-header">
         <div class="header-container">
             <a href="#" class="logo-wrapper">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-ems-nienburg.png" alt="OneLife Nienburg Logo" class="site-logo">
+                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/logo-onelife-clean.png" alt="OneLife Nienburg Logo" class="site-logo">
             </a>
             
             <nav class="desktop-nav" aria-label="Hauptnavigation">
@@ -87,11 +87,8 @@
         
         <!-- Hero Section -->
         <section class="hero-section" id="hero">
-            <!-- Background Image -->
-            <div class="hero-video-wrapper">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Hero/Onelife_Back_01.webp" alt="OneLife EMS Studio Atmosphäre" class="hero-bg-img" fetchpriority="high" loading="eager">
-                <div class="hero-overlay"></div>
-            </div>
+            <!-- Background Overlay (Image attached via CSS background-attachment: fixed) -->
+            <div class="hero-overlay"></div>
             
             <div class="hero-container">
                 <div class="hero-grid">
@@ -208,98 +205,86 @@
                     <p class="section-desc">Wir drehen den Spieß um. 4 typische Hürden – und wie wir sie in 25 Minuten pro Woche nachhaltig aus dem Weg räumen.</p>
                 </div>
 
-                <div class="problems-editorial-list">
+                <div class="problems-cards-grid">
                     
                     <!-- Problem 1: Zeitmangel -->
-                    <div class="problem-editorial-item">
-                        <div class="problem-editorial-media">
-                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=900&auto=format&fit=crop" alt="Voller Terminkalender und Berufsalltag" class="problem-editorial-img" loading="lazy">
-                        </div>
-                        <div class="problem-editorial-content">
+                    <div class="problem-card">
+                        <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Ich habe absolut keine Zeit für stundenlangen Sport.“</span>
-                            <h3 class="problem-solution-title">Die 25-Minuten-Befreiung für deinen Kalender</h3>
-                            <p class="problem-solution-desc">Du musst deinen Tag nicht auf den Kopf stellen. Einmal pro Woche reichen exakt <strong>25 Minuten</strong> aus, um deinen gesamten Körper tiefenwirksam zu trainieren. Dank des kabellosen EasyMotionSkin Trockenanzugs sparst du dir langes Umziehen und Nassspritzen. Passt perfekt in jede Mittagspause.</p>
-                            <div class="problem-key-points">
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Nur 1× pro Woche 25 Minuten Zeitaufwand</span>
-                                </div>
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Gleicher Muskelreiz wie mehrere Stunden Krafttraining</span>
-                                </div>
-                            </div>
-                            <a href="#lead-form" class="problem-cta-link">Termin in deiner Mittagspause sichern ➔</a>
+                            <span class="problem-num">01</span>
                         </div>
+                        <h3 class="problem-solution-title">Die 25-Minuten-Befreiung für deinen Kalender</h3>
+                        <div class="problem-key-points">
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Nur 1× pro Woche 25 Minuten Zeitaufwand</span>
+                            </div>
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Gleicher Muskelreiz wie mehrere Stunden Krafttraining</span>
+                            </div>
+                        </div>
+                        <a href="#lead-form" class="problem-cta-link">Termin in deiner Mittagspause sichern ➔</a>
                     </div>
 
                     <!-- Problem 2: Rückenschmerzen -->
-                    <div class="problem-editorial-item reverse">
-                        <div class="problem-editorial-media">
-                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900&auto=format&fit=crop" alt="Schmerzfreier Rücken und gesunde Haltung" class="problem-editorial-img" loading="lazy">
-                        </div>
-                        <div class="problem-editorial-content">
+                    <div class="problem-card">
+                        <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Rückenschmerzen gehören ab 30 einfach dazu.“</span>
-                            <h3 class="problem-solution-title">Schmerzfrei von innen heraus – ganz ohne schwere Gewichte</h3>
-                            <p class="problem-solution-desc">Stundenlanges Sitzen schwächt genau die feinen Haltemuskeln entlang deiner Wirbelsäule, die herkömmliche Übungen verfehlen. Gezielte Nieder- und Mittelfrequenzimpulse bauen ein natürliches Muskelkorsett auf. Du spürst schon nach wenigen Einheiten eine spürbare Entlastung im unteren Rücken.</p>
-                            <div class="problem-key-points">
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>100% gelenkschonend ohne Gelenkbelastung</span>
-                                </div>
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Aktiviert tiefliegende Muskelschichten der Wirbelsäule</span>
-                                </div>
-                            </div>
-                            <a href="#lead-form" class="problem-cta-link">Rücken gezielt stärken ➔</a>
+                            <span class="problem-num">02</span>
                         </div>
+                        <h3 class="problem-solution-title">Schmerzfrei von innen heraus – ganz ohne schwere Gewichte</h3>
+                        <div class="problem-key-points">
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>100% gelenkschonend ohne Gelenkbelastung</span>
+                            </div>
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Aktiviert tiefliegende Muskelschichten der Wirbelsäule</span>
+                            </div>
+                        </div>
+                        <a href="#lead-form" class="problem-cta-link">Rücken gezielt stärken ➔</a>
                     </div>
 
                     <!-- Problem 3: Anonyme Fitnessstudios / Fehlende Motivation -->
-                    <div class="problem-editorial-item">
-                        <div class="problem-editorial-media">
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=900&auto=format&fit=crop" alt="Persönliches Coaching und Motivation" class="problem-editorial-img" loading="lazy">
-                        </div>
-                        <div class="problem-editorial-content">
+                    <div class="problem-card">
+                        <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Ich bezahle ein Studio, gehe aber einfach nie hin.“</span>
-                            <h3 class="problem-solution-title">Feste Termine &amp; dein persönlicher Trainer-Champion</h3>
-                            <p class="problem-solution-desc">Schluss mit ungenutzten Beiträgen an anonyme Großraumhallen. Bei OneLife trainierst du nie allein: Du hast feste wöchentliche Termine und deinen lizenzierten Trainer stets an deiner Seite. Wir korrigieren deine Haltung, feuern dich an und sorgen dafür, dass dein innerer Schweinehund keine Chance hat.</p>
-                            <div class="problem-key-points">
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Feste Verbindlichkeit statt Ausreden</span>
-                                </div>
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>1-zu-1 Betreuung durch Lizenz-Trainer (Boxer, Sportler des Jahres)</span>
-                                </div>
-                            </div>
-                            <a href="#lead-form" class="problem-cta-link">Deine persönliche Betreuung starten ➔</a>
+                            <span class="problem-num">03</span>
                         </div>
+                        <h3 class="problem-solution-title">Feste Termine &amp; dein persönlicher Trainer-Champion</h3>
+                        <div class="problem-key-points">
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Feste Verbindlichkeit statt Ausreden</span>
+                            </div>
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>1-zu-1 Betreuung durch Lizenz-Trainer (Sportler des Jahres)</span>
+                            </div>
+                        </div>
+                        <a href="#lead-form" class="problem-cta-link">Deine persönliche Betreuung starten ➔</a>
                     </div>
 
                     <!-- Problem 4: Erschöpfung nach der Arbeit -->
-                    <div class="problem-editorial-item reverse">
-                        <div class="problem-editorial-media">
-                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900&auto=format&fit=crop" alt="Voller Energie und mentaler Frische" class="problem-editorial-img" loading="lazy">
-                        </div>
-                        <div class="problem-editorial-content">
+                    <div class="problem-card">
+                        <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Nach der Arbeit bin ich einfach komplett leergesaugt.“</span>
-                            <h3 class="problem-solution-title">Frische Energie und Dopamin-Kick statt Erschöpfung</h3>
-                            <p class="problem-solution-desc">Auf der Couch verfliegt die Müdigkeit nicht – sie verfestigt sich. Unser moderiertes EMS-Stoffwechseltraining weckt dein Nervensystem sanft auf und schüttet sofort frische Endorphine aus. Nach 25 Minuten fühlst du dich nicht k.o., sondern wach, erfrischt und mental voll aufgeladen für deinen Feierabend.</p>
-                            <div class="problem-key-points">
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Sofortiger Energieschub durch verbesserte Sauerstoffzirkulation</span>
-                                </div>
-                                <div class="problem-point">
-                                    <span class="point-icon">✓</span>
-                                    <span>Fördert tiefen, erholsamen Schlaf in der Nacht</span>
-                                </div>
-                            </div>
-                            <a href="#lead-form" class="problem-cta-link">Energieboost für deinen Feierabend ➔</a>
+                            <span class="problem-num">04</span>
                         </div>
+                        <h3 class="problem-solution-title">Frische Energie und Dopamin-Kick statt Erschöpfung</h3>
+                        <div class="problem-key-points">
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Sofortiger Energieschub durch verbesserte Sauerstoffzirkulation</span>
+                            </div>
+                            <div class="problem-point">
+                                <span class="point-icon">✓</span>
+                                <span>Fördert tiefen, erholsamen Schlaf in der Nacht</span>
+                            </div>
+                        </div>
+                        <a href="#lead-form" class="problem-cta-link">Energieboost für deinen Feierabend ➔</a>
                     </div>
 
                 </div>
@@ -335,7 +320,7 @@
                     <!-- Feature 2: EasyMotionSkin Trockenanzug -->
                     <div class="usp-visual-card">
                         <div class="usp-visual-media">
-                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop" alt="EasyMotionSkin kabelloser Trockenanzug" class="usp-visual-img">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_EasyMotionSkin_Suit.webp" alt="EasyMotionSkin kabelloser Trockenanzug im OneLife Studio" class="usp-visual-img" loading="lazy">
                         </div>
                         <div class="usp-visual-body">
                             <span class="usp-category-kicker">Technologie</span>
@@ -348,11 +333,10 @@
                         </div>
                     </div>
 
-                    <!-- Feature 3: Beckenboden-Stuhl (Chic mit transparentem Bild) -->
+                    <!-- Feature 3: Beckenboden-Stuhl (Chic mit authentischem Behandlungsbild) -->
                     <div class="usp-visual-card usp-card-chair">
                         <div class="usp-visual-media usp-media-chair">
-                            <div class="chair-glow-backdrop"></div>
-                            <img src="images/shr_pelvi_chair_transparent.webp" alt="SHR Germany EMS Pelvi Chair Feminora Max" class="usp-visual-img usp-img-chair" loading="lazy">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Pelvi_Chair.webp" alt="SHR Germany EMS Pelvi Chair Anwendung bei OneLife" class="usp-visual-img usp-img-chair" loading="lazy">
                         </div>
                         <div class="usp-visual-body">
                             <span class="usp-category-kicker">Exklusiv • Core &amp; Beckenboden</span>
@@ -369,7 +353,7 @@
                     <!-- Feature 4: Premium Personal Training & Cardio -->
                     <div class="usp-visual-card">
                         <div class="usp-visual-media">
-                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop" alt="1-zu-1 Personal Coaching bei OneLife" class="usp-visual-img">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Lunges_Coaching.webp" alt="1-zu-1 Personal Coaching mit Juri Baron bei OneLife" class="usp-visual-img" loading="lazy">
                         </div>
                         <div class="usp-visual-body">
                             <span class="usp-category-kicker">1-zu-1 Coaching</span>
@@ -391,68 +375,100 @@
                         <p class="brochure-pillars-desc">Wissenschaftlich fundiertes Bio-Impulstraining kombiniert mit ganzheitlicher Begleitung. Alles, was dein Körper für maximale Vitalität braucht.</p>
                     </div>
 
-                    <div class="brochure-pillars-grid">
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Personal Training</h4>
-                                <p>Ungeteilte 1-zu-1 Aufmerksamkeit durch A-Lizenz-Coaches in jeder Minute.</p>
-                            </div>
+                    <!-- Grid Container with glowing green Heartbeat / EKG pulse line behind cards -->
+                    <div class="brochure-pillars-grid-wrap">
+                        <div class="pillars-ekg-backdrop" aria-hidden="true">
+                            <svg class="pillars-ekg-svg" viewBox="0 0 1200 540" preserveAspectRatio="none" fill="none">
+                                <defs>
+                                    <linearGradient id="ekg-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#00C853" stop-opacity="0.05"/>
+                                        <stop offset="15%" stop-color="#00E676" stop-opacity="0.75"/>
+                                        <stop offset="50%" stop-color="#69F0AE" stop-opacity="0.95"/>
+                                        <stop offset="85%" stop-color="#00E676" stop-opacity="0.75"/>
+                                        <stop offset="100%" stop-color="#00C853" stop-opacity="0.05"/>
+                                    </linearGradient>
+                                    <filter id="ekg-blur-glow" x="-10%" y="-30%" width="120%" height="160%">
+                                        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                                        <feMerge>
+                                            <feMergeNode in="blur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <!-- Channel 1: Top Row Heartbeat Wave -->
+                                <path class="ekg-path ekg-subtle" d="M 0 90 L 90 90 L 110 82 L 125 90 L 140 90 L 148 98 L 160 30 L 174 135 L 186 90 L 210 90 L 230 76 L 255 90 L 460 90 L 480 82 L 495 90 L 510 90 L 518 98 L 530 25 L 544 140 L 556 90 L 580 90 L 600 76 L 625 90 L 840 90 L 860 82 L 875 90 L 890 90 L 898 98 L 910 32 L 924 136 L 936 90 L 960 90 L 980 76 L 1005 90 L 1200 90" stroke="url(#ekg-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                
+                                <!-- Channel 2: Center Row Primary Pulsing Heartbeat Wave (Main EKG) -->
+                                <path class="ekg-path ekg-primary" d="M 0 270 L 120 270 L 145 258 L 165 270 L 185 270 L 195 282 L 212 185 L 230 340 L 246 270 L 275 270 L 300 250 L 330 270 L 510 270 L 535 258 L 555 270 L 575 270 L 585 282 L 602 175 L 620 350 L 636 270 L 665 270 L 690 248 L 720 270 L 890 270 L 915 258 L 935 270 L 955 270 L 965 282 L 982 185 L 1000 340 L 1016 270 L 1045 270 L 1070 250 L 1100 270 L 1200 270" stroke="url(#ekg-line-gradient)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#ekg-blur-glow)"/>
+
+                                <!-- Channel 3: Bottom Row Heartbeat Wave -->
+                                <path class="ekg-path ekg-subtle" d="M 0 450 L 80 450 L 100 442 L 115 450 L 130 450 L 138 458 L 150 390 L 164 495 L 176 450 L 200 450 L 220 436 L 245 450 L 470 450 L 490 442 L 505 450 L 520 450 L 528 458 L 540 385 L 554 500 L 566 450 L 590 450 L 610 436 L 635 450 L 850 450 L 870 442 L 885 450 L 900 450 L 908 458 L 920 392 L 934 496 L 946 450 L 970 450 L 990 436 L 1015 450 L 1200 450" stroke="url(#ekg-line-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Maximaler Muskelaufbau</h4>
-                                <p>Gleichzeitige Aktivierung aller Hauptmuskelgruppen bis in die Tiefenfasern.</p>
+
+                        <div class="brochure-pillars-grid">
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Personal Training</h4>
+                                    <p>Ungeteilte 1-zu-1 Aufmerksamkeit durch A-Lizenz-Coaches in jeder Minute.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Maximale Fettverbrennung</h4>
-                                <p>Hoher Energieumsatz und langanhaltender Nachbrenneffekt bis zu 48 Stunden.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Maximaler Muskelaufbau</h4>
+                                    <p>Gleichzeitige Aktivierung aller Hauptmuskelgruppen bis in die Tiefenfasern.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Anti-Cellulite</h4>
-                                <p>Gezielte Tiefenimpulse straffen das Bindegewebe und glätten das Hautbild spürbar.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Maximale Fettverbrennung</h4>
+                                    <p>Hoher Energieumsatz und langanhaltender Nachbrenneffekt bis zu 48 Stunden.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Ernährungsberatung</h4>
-                                <p>Alltagstaugliche Ernährungsstrategien, abgestimmt auf dein persönliches Ziel.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Anti-Cellulite</h4>
+                                    <p>Gezielte Tiefenimpulse straffen das Bindegewebe und glätten das Hautbild spürbar.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Body Shaping</h4>
-                                <p>Fokussierte Definition von Bauch, Beinen, Po und Rumpf ganz ohne schwere Hanteln.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Ernährungsberatung</h4>
+                                    <p>Alltagstaugliche Ernährungsstrategien, abgestimmt auf dein persönliches Ziel.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Stoffwechseltraining</h4>
-                                <p>Patentierte Impulsprogramme auf Flex-Strider, Stairmaster, SkiErg &amp; AirBike.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Body Shaping</h4>
+                                    <p>Fokussierte Definition von Bauch, Beinen, Po und Rumpf ganz ohne schwere Hanteln.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>InBody Körperanalyse</h4>
-                                <p>Monatliche digitale Messung von Muskelmasse, Körperfett und Wasserhaushalt.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Stoffwechseltraining</h4>
+                                    <p>Patentierte Impulsprogramme auf Flex-Strider, Stairmaster, SkiErg &amp; AirBike.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pillar-card">
-                            <div class="pillar-icon-box">⚡</div>
-                            <div class="pillar-body">
-                                <h4>Rückenfitness &amp; Beckenboden</h4>
-                                <p>Entlastung der Wirbelsäule und diskretes Sit-Down-Training auf dem Pelvi Chair.</p>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>InBody Körperanalyse</h4>
+                                    <p>Monatliche digitale Messung von Muskelmasse, Körperfett und Wasserhaushalt.</p>
+                                </div>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="pillar-icon-box">⚡</div>
+                                <div class="pillar-body">
+                                    <h4>Rückenfitness &amp; Beckenboden</h4>
+                                    <p>Entlastung der Wirbelsäule und diskretes Sit-Down-Training auf dem Pelvi Chair.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -807,7 +823,7 @@
                     <!-- Team 5: Ahmed El-Molla -->
                     <div class="crew-card">
                         <div class="crew-card-media">
-                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/ahmed_el_molla_placeholder.webp" alt="Ahmed El-Molla – Team OneLife Nienburg" class="crew-image" loading="lazy">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Team201.webp" alt="Ahmed El-Molla – Team OneLife Nienburg" class="crew-image" loading="lazy">
                         </div>
                         <div class="crew-card-info">
                             <h3 class="crew-name">Ahmed El-Molla</h3>
