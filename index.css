@@ -488,6 +488,7 @@ a {
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background-color: var(--color-bg);
     z-index: 950;
     display: flex;
@@ -495,6 +496,10 @@ a {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 80px 24px 40px;
+    box-sizing: border-box;
     transition: var(--transition-smooth);
 }
 
@@ -575,10 +580,13 @@ a {
     z-index: 1;
 }
 
-.hero-video {
+.hero-video,
+.hero-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
+    display: block;
 }
 
 .hero-overlay {
@@ -603,8 +611,181 @@ a {
     z-index: 2;
 }
 
+/* Hero Grid (Two Column Desktop Layout) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 52px;
+    align-items: center;
+    width: 100%;
+}
+
 .hero-content {
-    max-width: 720px;
+    max-width: 640px;
+}
+
+.hero-video-column {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+/* Featured Video Card (Sleek Portrait Framing, Anti-Clutter, Click to Unmute & Restart) */
+.hero-featured-video-card {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 9 / 16;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #080A0F;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 
+        0 24px 60px -15px rgba(0, 0, 0, 0.85),
+        0 0 35px -10px rgba(0, 200, 83, 0.18);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hero-featured-video-card:hover,
+.hero-featured-video-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 32px 75px -12px rgba(0, 0, 0, 0.92),
+        0 0 50px -8px rgba(0, 200, 83, 0.3);
+    border-color: rgba(0, 200, 83, 0.45);
+}
+
+.hero-featured-video-card:focus-visible {
+    outline: 2px solid var(--color-primary-glow);
+    outline-offset: 3px;
+}
+
+.hero-featured-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Hero Video Minimal Controls (Dezent, Floating Glass Dock, Replay & Muted Speaker) */
+.hero-video-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.hero-control-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(11, 14, 20, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #F1F5F9;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease;
+    outline: none;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hero-control-btn svg {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.hero-control-btn:hover {
+    background: rgba(18, 24, 38, 0.95);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #FFFFFF;
+    transform: scale(1.08);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.65);
+}
+
+.hero-control-btn:active {
+    transform: scale(0.95);
+}
+
+.hero-control-btn:focus-visible {
+    outline: 2px solid var(--color-primary-glow);
+    outline-offset: 2px;
+}
+
+/* Sound active / unmuted state */
+.hero-sound-btn.is-active {
+    color: #4ADE80;
+    border-color: rgba(74, 222, 128, 0.45);
+    background: rgba(0, 160, 84, 0.22);
+}
+
+.hero-sound-btn.is-active:hover {
+    background: rgba(0, 160, 84, 0.35);
+    border-color: rgba(74, 222, 128, 0.65);
+    color: #86EFAC;
+}
+
+/* Replay Smooth Spin Animation */
+@keyframes replay-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-replay-btn.is-spinning svg,
+.icon-replay.is-spinning {
+    animation: replay-spin 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Slim Video Progress Bar */
+.hero-video-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 6;
+}
+
+.hero-video-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-glow));
+    transition: width 0.15s linear;
 }
 
 .hero-eyebrow {
@@ -1546,7 +1727,7 @@ a {
             rgba(11, 14, 20, 0.80) 50%, 
             rgba(11, 14, 20, 0.86) 84%, 
             var(--color-bg) 100%),
-        url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/ems_steps_bg.webp');
+        url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Hero/Onelife_Back_02.webp');
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1885,6 +2066,28 @@ a {
     font-size: 12px;
     color: var(--color-text-muted);
     line-height: 1.5;
+}
+
+/* Cloudflare Turnstile Container & Form Error Banner */
+.turnstile-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 10px auto;
+    min-height: 65px;
+    width: 100%;
+}
+
+.form-error-banner {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #FCA5A5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 14px;
+    text-align: center;
+    line-height: 1.45;
 }
 
 /* Funnel Navigation buttons */
@@ -2888,6 +3091,25 @@ a {
     .hero-title {
         font-size: 52px;
     }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-video-column {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero-featured-video-card {
+        max-width: 360px;
+        margin: 0 auto;
+    }
     
     .grid-2-col {
         gap: 40px;
@@ -2950,9 +3172,20 @@ a {
         font-size: 16px;
     }
 
+    .hero-grid {
+        gap: 28px;
+    }
+
+    .hero-featured-video-card {
+        max-width: 320px;
+        border-radius: 20px;
+    }
+
     .hero-partner-logos {
         gap: 20px;
         justify-content: flex-start;
+        margin-top: 36px;
+        padding-top: 20px;
     }
 
     .usps-visual-grid {
@@ -3104,6 +3337,27 @@ a {
     .hero-title {
         font-size: 30px;
         line-height: 1.15;
+    }
+
+    .hero-featured-video-card {
+        max-width: min(290px, 86vw);
+        border-radius: 16px;
+    }
+
+    .hero-video-controls {
+        bottom: 12px;
+        right: 12px;
+        gap: 6px;
+    }
+
+    .hero-control-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero-control-btn svg {
+        width: 16px;
+        height: 16px;
     }
     
     .hero-top-badges-wrap {
