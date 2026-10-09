@@ -2314,21 +2314,6 @@ a {
     display: inline-block;
 }
 
-/* Pelvi Chair containment in USP grid */
-.usp-media-chair {
-    background: radial-gradient(circle at center, rgba(0, 160, 84, 0.08) 0%, #0b0e14 75%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-}
-
-.usp-img-chair {
-    object-fit: contain !important;
-    max-height: 200px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-}
-
 .usp-visual-body {
     padding: 28px;
     display: flex;

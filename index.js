@@ -394,7 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const CORPORATE_LABELS = {
         'hansefit': 'Hansefit Firmenfitness',
         'egym': 'EGYM Wellpass Firmenfitness',
-        'epassy': 'Epassi Firmenfitness',
+        'epassi': 'EPassi Firmenfitness',
+        'epassy': 'EPassi Firmenfitness',
         'nein': 'Nein, Privatzahler / Selbstzahler'
     };
 
