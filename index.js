@@ -271,13 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     // 5. Interactive Funnel Form & Lead Funnel Modal Window (Scholz & Friese)
     // ==========================================================================
-    const isTunnelOrLocal = window.location.hostname.includes('trycloudflare.com') || 
-                           window.location.hostname === 'localhost' || 
-                           window.location.hostname === '127.0.0.1';
-
-    const TURNSTILE_SITEKEY = (window.TURNSTILE_SITEKEY && !isTunnelOrLocal)
-        ? window.TURNSTILE_SITEKEY
-        : '1x00000000000000000000AA';
+    const TURNSTILE_SITEKEY = window.TURNSTILE_SITEKEY || '0x4AAAAAAFUDZqh1b9LI6Wja';
 
     const GOAL_LABELS = {
         'ruecken': 'Rückenschmerzen lindern',
