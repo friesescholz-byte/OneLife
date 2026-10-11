@@ -3,6 +3,56 @@
    Created by Scholz & Friese Webdesign-Agentur (UI/UX Pro Max)
    ========================================================================== */
 
+// Expose global open/close modal functions immediately so inline onclick handlers never fail
+window.openLeadModal = function(e) {
+    if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const modal = document.getElementById('lead-funnel-modal');
+    if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        
+        // Close mobile overlay if active
+        const mobileOverlay = document.getElementById('mobile-nav-overlay');
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        if (mobileOverlay && mobileOverlay.classList.contains('active')) {
+            mobileOverlay.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+            document.body.classList.remove('overflow-hidden');
+        }
+        
+        // Trigger modal Turnstile render if on step 3
+        if (window.renderModalTurnstileIfStep3) {
+            window.renderModalTurnstileIfStep3();
+        }
+    }
+};
+
+window.closeLeadModal = function(e) {
+    if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const modal = document.getElementById('lead-funnel-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    }
+};
+
+window.openFunnelModal = window.openLeadModal;
+window.closeFunnelModal = window.closeLeadModal;
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        window.closeLeadModal();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================================================
@@ -219,19 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlider();
 
     // ==========================================================================
-    // 5. Interactive Funnel Form (Lead Generator) & Cloudflare Turnstile
+    // 5. Interactive Funnel Form & Lead Funnel Modal Window (Scholz & Friese)
     // ==========================================================================
-    const form = document.getElementById('probetraining-funnel-form');
-    const steps = Array.from(document.querySelectorAll('.funnel-step'));
-    const nextButtons = document.querySelectorAll('.btn-next');
-    const prevButtons = document.querySelectorAll('.btn-prev');
-    const progressFill = document.getElementById('progress-fill');
-    const successView = document.getElementById('funnel-success');
-    const formErrorMsg = document.getElementById('form-error-msg');
-    
-    // Cloudflare Turnstile Configuration
-    // Registered domains: onelife.friese-scholz.workers.dev and onelife-nienburg.de
-    // Test key '1x00000000000000000000AA' always passes (ideal for local / tunnel preview)
     const isTunnelOrLocal = window.location.hostname.includes('trycloudflare.com') || 
                            window.location.hostname === 'localhost' || 
                            window.location.hostname === '127.0.0.1';
@@ -239,150 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const TURNSTILE_SITEKEY = (window.TURNSTILE_SITEKEY && !isTunnelOrLocal)
         ? window.TURNSTILE_SITEKEY
         : '1x00000000000000000000AA';
-
-    let currentStep = 1;
-    let turnstileWidgetId = null;
-    let turnstileToken = '';
-
-    function renderTurnstile() {
-        const container = document.getElementById('cf-turnstile-container');
-        if (!container || !window.turnstile) return;
-        if (turnstileWidgetId !== null) return; // Prevent duplicate render
-
-        try {
-            container.innerHTML = '';
-            turnstileWidgetId = window.turnstile.render(container, {
-                sitekey: TURNSTILE_SITEKEY,
-                theme: 'dark',
-                callback: function(token) {
-                    turnstileToken = token;
-                    if (formErrorMsg) formErrorMsg.style.display = 'none';
-                },
-                'expired-callback': function() {
-                    turnstileToken = '';
-                },
-                'error-callback': function() {
-                    console.warn('Turnstile challenge error - check domain whitelisting.');
-                }
-            });
-        } catch (err) {
-            console.warn('Turnstile render exception:', err);
-        }
-    }
-    
-    function updateFunnelStep() {
-        // Show/Hide steps
-        steps.forEach(step => {
-            step.classList.remove('active');
-            if (parseInt(step.getAttribute('data-step'), 10) === currentStep) {
-                step.classList.add('active');
-            }
-        });
-        
-        // Update Progress Bar
-        const percentage = (currentStep / steps.length) * 100;
-        progressFill.style.width = `${percentage}%`;
-
-        // Render Turnstile when reaching Step 3
-        if (currentStep === 3) {
-            if (window.turnstile) {
-                renderTurnstile();
-            } else {
-                let attempts = 0;
-                const checkInterval = setInterval(() => {
-                    attempts++;
-                    if (window.turnstile) {
-                        renderTurnstile();
-                        clearInterval(checkInterval);
-                    } else if (attempts > 30) {
-                        clearInterval(checkInterval);
-                    }
-                }, 100);
-            }
-        }
-    }
-    
-    function validateStep(stepNum) {
-        const stepContainer = document.querySelector(`.funnel-step[data-step="${stepNum}"]`);
-        if (!stepContainer) return true;
-
-        if (formErrorMsg) formErrorMsg.style.display = 'none';
-        
-        // Validate radio buttons (Step 1 and Step 2)
-        const radios = stepContainer.querySelectorAll('input[type="radio"]');
-        if (radios.length > 0) {
-            let radioChecked = false;
-            radios.forEach(radio => {
-                if (radio.checked) radioChecked = true;
-            });
-            if (!radioChecked) {
-                alert('Bitte wähle eine Option aus, um fortzufahren.');
-                return false;
-            }
-            return true;
-        }
-        
-        // Validate text inputs on step 3
-        const inputs = stepContainer.querySelectorAll('input[required]');
-        let inputsValid = true;
-        
-        inputs.forEach(input => {
-            if (input.type === 'checkbox') {
-                if (!input.checked) {
-                    inputsValid = false;
-                    input.closest('.form-checkbox-group').style.outline = '1px solid var(--color-danger)';
-                } else {
-                    input.closest('.form-checkbox-group').style.outline = 'none';
-                }
-            } else {
-                if (!input.value.trim()) {
-                    inputsValid = false;
-                    input.style.borderColor = 'var(--color-danger)';
-                } else {
-                    input.style.borderColor = '';
-                }
-            }
-        });
-
-        if (!inputsValid) {
-            if (formErrorMsg) {
-                formErrorMsg.textContent = 'Bitte fülle alle Pflichtfelder aus und bestätige die Datenschutzerklärung.';
-                formErrorMsg.style.display = 'block';
-            }
-            return false;
-        }
-        
-        return true;
-    }
-    
-    nextButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (validateStep(currentStep)) {
-                currentStep++;
-                updateFunnelStep();
-            }
-        });
-    });
-    
-    prevButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            currentStep--;
-            updateFunnelStep();
-        });
-    });
-
-    // Auto-advance for Step 1 and Step 2 radio selections
-    const funnelRadios = document.querySelectorAll('.funnel-step input[type="radio"]');
-    funnelRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if (currentStep < 3) {
-                setTimeout(() => {
-                    currentStep++;
-                    updateFunnelStep();
-                }, 220); // Smooth delay so the selection highlight is visible
-            }
-        });
-    });
 
     const GOAL_LABELS = {
         'ruecken': 'Rückenschmerzen lindern',
@@ -408,55 +303,211 @@ document.addEventListener('DOMContentLoaded', () => {
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
     }
-    
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (!validateStep(currentStep)) {
-                return;
+
+    function initFunnelInstance(cfg) {
+        const container = document.getElementById(cfg.containerId);
+        if (!container) return;
+
+        const form = document.getElementById(cfg.formId);
+        const steps = Array.from(container.querySelectorAll('.funnel-step'));
+        const progressFill = document.getElementById(cfg.progressFillId);
+        const successView = document.getElementById(cfg.successViewId);
+        const formErrorMsg = document.getElementById(cfg.errorMsgId);
+        const submitBtn = document.getElementById(cfg.submitBtnId);
+
+        let currentStep = 1;
+        let turnstileWidgetId = null;
+        let turnstileToken = '';
+
+        function renderTurnstile() {
+            const turnstileBox = document.getElementById(cfg.turnstileContainerId);
+            if (!turnstileBox || !window.turnstile) return;
+            if (turnstileWidgetId !== null) return;
+
+            try {
+                turnstileBox.innerHTML = '';
+                turnstileWidgetId = window.turnstile.render(turnstileBox, {
+                    sitekey: TURNSTILE_SITEKEY,
+                    theme: 'dark',
+                    callback: function(token) {
+                        turnstileToken = token;
+                        if (formErrorMsg) formErrorMsg.style.display = 'none';
+                    },
+                    'expired-callback': function() {
+                        turnstileToken = '';
+                    },
+                    'error-callback': function() {
+                        console.warn('Turnstile challenge error in ' + cfg.containerId);
+                    }
+                });
+            } catch (err) {
+                console.warn('Turnstile render exception:', err);
+            }
+        }
+
+        if (cfg.isModal) {
+            window.renderModalTurnstileIfStep3 = function() {
+                if (currentStep === 3) {
+                    renderTurnstile();
+                }
+            };
+        }
+
+        function updateSteps() {
+            steps.forEach(step => {
+                const sNum = parseInt(step.getAttribute('data-step'), 10);
+                if (sNum === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+
+            if (progressFill && steps.length > 0) {
+                const percentage = (currentStep / steps.length) * 100;
+                progressFill.style.width = `${percentage}%`;
+
+                const stepNumEl = container.querySelector('.active-step-num');
+                if (stepNumEl) stepNumEl.textContent = currentStep;
+                const pctEl = container.querySelector('.progress-pct-badge');
+                if (pctEl) pctEl.textContent = `${Math.round(percentage)}%`;
             }
 
-            const submitBtn = document.getElementById('submit-btn');
-            const originalBtnContent = submitBtn.innerHTML;
+            if (currentStep === 3) {
+                if (window.turnstile) {
+                    renderTurnstile();
+                } else {
+                    let attempts = 0;
+                    const interval = setInterval(() => {
+                        attempts++;
+                        if (window.turnstile) {
+                            renderTurnstile();
+                            clearInterval(interval);
+                        } else if (attempts > 30) {
+                            clearInterval(interval);
+                        }
+                    }, 100);
+                }
+            }
+        }
 
-            // Check Turnstile token if available
-            const token = turnstileToken || (window.turnstile && turnstileWidgetId !== null ? window.turnstile.getResponse(turnstileWidgetId) : '');
-
-            // Collect Form Data
-            const goalInput = form.querySelector('input[name="goal"]:checked');
-            const corporateInput = form.querySelector('input[name="corporate"]:checked');
-            const nameInput = document.getElementById('client-name');
-            const emailInput = document.getElementById('client-email');
-            const phoneInput = document.getElementById('client-phone');
-
-            const goalVal = goalInput ? goalInput.value : '';
-            const corpVal = corporateInput ? corporateInput.value : '';
-            const nameVal = nameInput ? nameInput.value.trim() : '';
-            const emailVal = emailInput ? emailInput.value.trim() : '';
-            const phoneVal = phoneInput ? phoneInput.value.trim() : '';
-
-            const formattedGoal = GOAL_LABELS[goalVal] || goalVal || 'Nicht angegeben';
-            const formattedCorp = CORPORATE_LABELS[corpVal] || corpVal || 'Nicht angegeben';
-            const requestDate = new Date().toLocaleString('de-DE', { timeZone: 'Europe/Berlin', dateStyle: 'full', timeStyle: 'short' });
-            const originHost = window.location.hostname || 'onelife-nienburg.de';
-
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.75';
-            submitBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle;">
-                    <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-                    <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
-                </svg>
-                <span>Wird gesichert übertragen...</span>
-            `;
-
+        function validateStep(stepNum) {
+            const stepEl = container.querySelector(`.funnel-step[data-step="${stepNum}"]`);
+            if (!stepEl) return true;
             if (formErrorMsg) formErrorMsg.style.display = 'none';
 
-            // Premium HTML Email Template for Scholz & Friese OneLife Lead System
-            const emailSubject = `⚡ Neue Anfrage Probetraining: ${nameVal} (${formattedGoal})`;
-            const emailHtml = `
+            const radios = stepEl.querySelectorAll('input[type="radio"]');
+            if (radios.length > 0) {
+                let checked = false;
+                radios.forEach(r => { if (r.checked) checked = true; });
+                if (!checked) {
+                    alert('Bitte wähle eine Option aus, um fortzufahren.');
+                    return false;
+                }
+                return true;
+            }
+
+            const requiredInputs = stepEl.querySelectorAll('input[required]');
+            let valid = true;
+            requiredInputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (!input.checked) {
+                        valid = false;
+                        const group = input.closest('.form-checkbox-group');
+                        if (group) group.style.outline = '1px solid var(--color-danger)';
+                    } else {
+                        const group = input.closest('.form-checkbox-group');
+                        if (group) group.style.outline = 'none';
+                    }
+                } else {
+                    if (!input.value.trim()) {
+                        valid = false;
+                        input.style.borderColor = 'var(--color-danger)';
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                }
+            });
+
+            if (!valid) {
+                if (formErrorMsg) {
+                    formErrorMsg.textContent = 'Bitte fülle alle Pflichtfelder aus und bestätige die Datenschutzerklärung.';
+                    formErrorMsg.style.display = 'block';
+                }
+                return false;
+            }
+            return true;
+        }
+
+        const nextBtns = container.querySelectorAll('.btn-next');
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    updateSteps();
+                }
+            });
+        });
+
+        const prevBtns = container.querySelectorAll('.btn-prev');
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentStep--;
+                updateSteps();
+            });
+        });
+
+        const radioInputs = container.querySelectorAll('input[type="radio"]');
+        radioInputs.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (currentStep < 3) {
+                    setTimeout(() => {
+                        currentStep++;
+                        updateSteps();
+                    }, 220);
+                }
+            });
+        });
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!validateStep(currentStep)) return;
+
+                const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.75';
+                    submitBtn.innerHTML = `
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle;">
+                            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+                            <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/>
+                        </svg>
+                        <span>Wird gesichert übertragen...</span>
+                    `;
+                }
+                if (formErrorMsg) formErrorMsg.style.display = 'none';
+
+                const goalInput = form.querySelector(`input[name="${cfg.radioGoalName}"]:checked`);
+                const corpInput = form.querySelector(`input[name="${cfg.radioCorpName}"]:checked`);
+                const nameInput = document.getElementById(cfg.nameInputId);
+                const emailInput = document.getElementById(cfg.emailInputId);
+                const phoneInput = document.getElementById(cfg.phoneInputId);
+
+                const goalVal = goalInput ? goalInput.value : '';
+                const corpVal = corpInput ? corpInput.value : '';
+                const nameVal = nameInput ? nameInput.value.trim() : '';
+                const emailVal = emailInput ? emailInput.value.trim() : '';
+                const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+
+                const formattedGoal = GOAL_LABELS[goalVal] || goalVal || 'Nicht angegeben';
+                const formattedCorp = CORPORATE_LABELS[corpVal] || corpVal || 'Nicht angegeben';
+                const requestDate = new Date().toLocaleString('de-DE', { timeZone: 'Europe/Berlin', dateStyle: 'full', timeStyle: 'short' });
+
+                const emailSubject = `⚡ Neue Anfrage Probetraining (${cfg.isModal ? 'Modal-Fenster' : 'Website-Formular'}): ${nameVal} (${formattedGoal})`;
+                const emailHtml = `
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -478,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td style="padding: 32px 32px 24px 32px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
               <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #00C853; margin-bottom: 8px;">
-                OneLife Nienburg • Lead Management
+                OneLife Nienburg • Lead Management (${cfg.isModal ? 'Sleek Modal Window' : 'Website Formular'})
               </div>
               <h1 style="margin: 0; font-size: 24px; font-weight: 800; color: #ffffff; line-height: 1.3;">
                 Neue Anfrage für ein Probetraining
@@ -537,37 +588,23 @@ document.addEventListener('DOMContentLoaded', () => {
                   </td>
                 </tr>
 
-                <!-- Training Goal -->
+                <!-- Sportliches Ziel -->
                 <tr>
-                  <td style="padding: 14px 0 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; color: #94A3B8;">
-                    Sportliches Ziel:
+                  <td style="padding: 14px 0 10px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; color: #94A3B8;">
+                    Trainingsziel:
                   </td>
-                  <td style="padding: 14px 0 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 15px; font-weight: 600; color: #F1F5F9;">
-                    <span style="display: inline-block; background: rgba(0, 200, 83, 0.15); border: 1px solid rgba(0, 200, 83, 0.35); color: #86EFAC; padding: 4px 10px; border-radius: 6px; font-size: 13px;">
-                      🎯 ${escapeHtml(formattedGoal)}
-                    </span>
+                  <td style="padding: 14px 0 10px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 15px; font-weight: 600; color: #FACC15;">
+                    🎯 ${escapeHtml(formattedGoal)}
                   </td>
                 </tr>
 
-                <!-- Corporate Fitness -->
+                <!-- Firmenfitness Partner -->
                 <tr>
-                  <td style="padding: 10px 0 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; color: #94A3B8;">
+                  <td style="padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; color: #94A3B8;">
                     Firmenfitness:
                   </td>
-                  <td style="padding: 10px 0 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 15px; font-weight: 600; color: #F1F5F9;">
-                    <span style="display: inline-block; background: rgba(250, 204, 21, 0.12); border: 1px solid rgba(250, 204, 21, 0.3); color: #FDE047; padding: 4px 10px; border-radius: 6px; font-size: 13px;">
-                      🏢 ${escapeHtml(formattedCorp)}
-                    </span>
-                  </td>
-                </tr>
-
-                <!-- Source / Security -->
-                <tr>
-                  <td style="padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 12px; color: #64748B;">
-                    Website &amp; Status:
-                  </td>
-                  <td style="padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 12px; color: #64748B;">
-                    ${escapeHtml(originHost)} • Turnstile ${token ? 'validiert' : 'bereit'}
+                  <td style="padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 15px; font-weight: 600; color: #38BDF8;">
+                    🏢 ${escapeHtml(formattedCorp)}
                   </td>
                 </tr>
 
@@ -601,57 +638,115 @@ document.addEventListener('DOMContentLoaded', () => {
 </html>
 `;
 
-            const payload = {
-                from: "OneLife Nienburg <noreply@scholz-friese-webdesign.de>",
-                to: ["friese.scholz@gmail.com"],
-                reply_to: emailVal,
-                subject: emailSubject,
-                html: emailHtml
-            };
+                const payload = {
+                    from: "OneLife Nienburg <noreply@scholz-friese-webdesign.de>",
+                    to: ["friese.scholz@gmail.com"],
+                    reply_to: emailVal,
+                    subject: emailSubject,
+                    html: emailHtml
+                };
 
-            try {
-                const response = await fetch('https://resend-mailer.friese-scholz.workers.dev', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                try {
+                    const response = await fetch('https://resend-mailer.friese-scholz.workers.dev', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
 
-                const data = await response.json().catch(() => ({}));
+                    const data = await response.json().catch(() => ({}));
 
-                if (response.ok || (data && data.id)) {
-                    // Success View
-                    form.style.display = 'none';
-                    progressFill.style.width = '100%';
-                    successView.classList.add('active');
+                    if (response.ok || (data && data.id)) {
+                        form.style.display = 'none';
+                        if (progressFill) progressFill.style.width = '100%';
+                        const pctEl = container.querySelector('.progress-pct-badge');
+                        if (pctEl) pctEl.textContent = '100%';
+                        const stepBadge = container.querySelector('.step-badge');
+                        if (stepBadge) stepBadge.textContent = 'Abgeschlossen';
+                        if (successView) successView.classList.add('active');
 
-                    // Reset Turnstile if widget active
-                    if (window.turnstile && turnstileWidgetId !== null) {
-                        try { window.turnstile.reset(turnstileWidgetId); } catch (e) {}
+                        if (window.turnstile && turnstileWidgetId !== null) {
+                            try { window.turnstile.reset(turnstileWidgetId); } catch (e) {}
+                        }
+
+                        if (!cfg.isModal) {
+                            const leadSection = document.getElementById('lead-form');
+                            if (leadSection) {
+                                window.scrollTo({
+                                    top: leadSection.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }
+                    } else {
+                        throw new Error(data.message || data.error || 'Fehler beim Senden');
                     }
-
-                    // Smooth scroll to top of lead section
-                    const leadSection = document.getElementById('lead-form');
-                    if (leadSection) {
-                        window.scrollTo({
-                            top: leadSection.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                } catch (err) {
+                    console.error('Mail dispatch error:', err);
+                    if (formErrorMsg) {
+                        formErrorMsg.textContent = 'Es gab ein Problem beim Absenden deiner Anfrage. Bitte überprüfe deine Angaben oder kontaktiere uns direkt telefonisch.';
+                        formErrorMsg.style.display = 'block';
                     }
-                } else {
-                    throw new Error(data.message || data.error || 'Fehler beim Senden');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.innerHTML = originalBtnContent;
+                    }
                 }
-            } catch (err) {
-                console.error('Mail dispatch error:', err);
-                if (formErrorMsg) {
-                    formErrorMsg.textContent = 'Es gab ein Problem beim Absenden deiner Anfrage. Bitte überprüfe deine Angaben oder kontaktiere uns direkt telefonisch.';
-                    formErrorMsg.style.display = 'block';
-                }
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-                submitBtn.innerHTML = originalBtnContent;
-            }
-        });
+            });
+        }
+
+        updateSteps();
     }
+
+    // 1. Initialize In-Page Funnel Form (on the main page)
+    initFunnelInstance({
+        containerId: 'inpage-funnel-container',
+        formId: 'probetraining-funnel-form',
+        progressFillId: 'progress-fill',
+        turnstileContainerId: 'cf-turnstile-container',
+        errorMsgId: 'form-error-msg',
+        submitBtnId: 'submit-btn',
+        successViewId: 'funnel-success',
+        isModal: false,
+        radioGoalName: 'goal',
+        radioCorpName: 'corporate',
+        nameInputId: 'client-name',
+        emailInputId: 'client-email',
+        phoneInputId: 'client-phone',
+        privacyInputId: 'client-privacy'
+    });
+
+    // 2. Initialize Modal Funnel Form (in the popup window)
+    initFunnelInstance({
+        containerId: 'modal-funnel-container',
+        formId: 'modal-funnel-form',
+        progressFillId: 'modal-progress-fill',
+        turnstileContainerId: 'modal-cf-turnstile-container',
+        errorMsgId: 'modal-form-error-msg',
+        submitBtnId: 'modal-submit-btn',
+        successViewId: 'modal-funnel-success',
+        isModal: true,
+        radioGoalName: 'modal_goal',
+        radioCorpName: 'modal_corporate',
+        nameInputId: 'modal-client-name',
+        emailInputId: 'modal-client-email',
+        phoneInputId: 'modal-client-phone',
+        privacyInputId: 'modal-client-privacy'
+    });
+
+    // Wire all CTA triggers across the page to open the sleek modal window
+    const ctaTriggers = document.querySelectorAll(
+        '.open-funnel-modal-btn, .btn-special-cta, a[href="#lead-form"], .problem-cta-link, .btn-nav, .mobile-nav-btn'
+    );
+
+    ctaTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Never hijack the form submit button inside the funnel
+            if (btn.type === 'submit' || btn.id === 'submit-btn' || btn.id === 'modal-submit-btn' || btn.closest('.funnel-form')) return;
+            e.preventDefault();
+            window.openLeadModal(e);
+        });
+    });
 
     // ==========================================================================
     // 6. Award Video Player Interaction (Instagram Reel / Trophy Video)

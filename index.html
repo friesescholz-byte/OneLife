@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=2.4">
 
     <!-- Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
@@ -40,7 +40,7 @@
             </nav>
             
             <div class="header-actions">
-                <a href="#lead-form" class="btn btn-special-cta btn-nav">
+                <a href="#lead-form" class="btn btn-special-cta btn-nav" onclick="openLeadModal(event)">
                     <span class="ekg-border-wrapper" aria-hidden="true">
                         <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
                             <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,7 +69,7 @@
             <a href="#crew" class="mobile-nav-link">Team</a>
             <a href="#ems-how" class="mobile-nav-link">Ablauf</a>
             <a href="#faq" class="mobile-nav-link">FAQ</a>
-            <a href="#lead-form" class="btn btn-special-cta mobile-nav-btn">
+            <a href="#lead-form" class="btn btn-special-cta mobile-nav-btn" onclick="openLeadModal(event)">
                 <span class="ekg-border-wrapper" aria-hidden="true">
                     <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
                         <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -115,7 +115,7 @@
                         <p class="hero-subtitle fade-in">Zertifiziert für höchste Gerätequalität und exzellente Trainerqualifikation. Erlebe kabelloses High-End-EMS mit EasyMotionSkin unter der persönlichen Leitung von Bundesliga-Ringer &amp; 2× Sportler des Jahres Juri Baron.</p>
                         
                         <div class="hero-cta-group fade-in">
-                            <a href="#lead-form" class="btn btn-special-cta btn-lg">
+                            <a href="#lead-form" class="btn btn-special-cta btn-lg" onclick="openLeadModal(event)">
                                 <span class="ekg-border-wrapper" aria-hidden="true">
                                     <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
                                         <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -211,7 +211,6 @@
                     <div class="problem-card">
                         <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Ich habe absolut keine Zeit für stundenlangen Sport.“</span>
-                            <span class="problem-num">01</span>
                         </div>
                         <h3 class="problem-solution-title">Die 25-Minuten-Befreiung für deinen Kalender</h3>
                         <div class="problem-key-points">
@@ -224,14 +223,13 @@
                                 <span>Gleicher Muskelreiz wie mehrere Stunden Krafttraining</span>
                             </div>
                         </div>
-                        <a href="#lead-form" class="problem-cta-link">Termin in deiner Mittagspause sichern ➔</a>
+                        <a href="#lead-form" class="problem-cta-link" onclick="openLeadModal(event)">Termin in deiner Mittagspause sichern ➔</a>
                     </div>
 
                     <!-- Problem 2: Rückenschmerzen -->
                     <div class="problem-card">
                         <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Rückenschmerzen gehören ab 30 einfach dazu.“</span>
-                            <span class="problem-num">02</span>
                         </div>
                         <h3 class="problem-solution-title">Schmerzfrei von innen heraus – ganz ohne schwere Gewichte</h3>
                         <div class="problem-key-points">
@@ -244,14 +242,13 @@
                                 <span>Aktiviert tiefliegende Muskelschichten der Wirbelsäule</span>
                             </div>
                         </div>
-                        <a href="#lead-form" class="problem-cta-link">Rücken gezielt stärken ➔</a>
+                        <a href="#lead-form" class="problem-cta-link" onclick="openLeadModal(event)">Rücken gezielt stärken ➔</a>
                     </div>
 
                     <!-- Problem 3: Anonyme Fitnessstudios / Fehlende Motivation -->
                     <div class="problem-card">
                         <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Ich bezahle ein Studio, gehe aber einfach nie hin.“</span>
-                            <span class="problem-num">03</span>
                         </div>
                         <h3 class="problem-solution-title">Feste Termine &amp; dein persönlicher Trainer-Champion</h3>
                         <div class="problem-key-points">
@@ -264,14 +261,13 @@
                                 <span>1-zu-1 Betreuung durch Lizenz-Trainer (Sportler des Jahres)</span>
                             </div>
                         </div>
-                        <a href="#lead-form" class="problem-cta-link">Deine persönliche Betreuung starten ➔</a>
+                        <a href="#lead-form" class="problem-cta-link" onclick="openLeadModal(event)">Deine persönliche Betreuung starten ➔</a>
                     </div>
 
                     <!-- Problem 4: Erschöpfung nach der Arbeit -->
                     <div class="problem-card">
                         <div class="problem-card-header">
                             <span class="problem-quote-badge">Die Ausrede: „Nach der Arbeit bin ich einfach komplett leergesaugt.“</span>
-                            <span class="problem-num">04</span>
                         </div>
                         <h3 class="problem-solution-title">Frische Energie und Dopamin-Kick statt Erschöpfung</h3>
                         <div class="problem-key-points">
@@ -284,7 +280,7 @@
                                 <span>Fördert tiefen, erholsamen Schlaf in der Nacht</span>
                             </div>
                         </div>
-                        <a href="#lead-form" class="problem-cta-link">Energieboost für deinen Feierabend ➔</a>
+                        <a href="#lead-form" class="problem-cta-link" onclick="openLeadModal(event)">Energieboost für deinen Feierabend ➔</a>
                     </div>
 
                 </div>
@@ -303,17 +299,17 @@
                 <div class="usps-visual-grid">
                     <!-- Feature 1: InBody Scan -->
                     <div class="usp-visual-card">
-                        <div class="usp-visual-media">
-                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_InBody_Scan.webp" alt="InBody 270 Analyse im OneLife Studio Nienburg" class="usp-visual-img" loading="lazy">
+                        <div class="usp-visual-media usp-media-inbody">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_InBody_Scan.webp" alt="InBody 270 Analyse im OneLife Studio Nienburg" class="usp-visual-img usp-img-inbody" loading="lazy">
                         </div>
                         <div class="usp-visual-body">
                             <span class="usp-category-kicker">Startpunkt &amp; Klarheit</span>
                             <h3 class="usp-visual-title">InBody-Körperscan: Deine Transformation startet mit Klarheit</h3>
                             <p class="usp-visual-text">Wenn du eine Veränderung planst, ist es wichtig, zuerst deinen Startpunkt zu kennen. Deshalb machen wir zuerst eine Messung auf der InBody-Waage. Sie zeigt dir genau, wo du aktuell stehst – und hilft uns, dein persönliches Ziel realistisch und messbar zu definieren.</p>
                             <ul class="usp-visual-list">
-                                <li><span>✔</span> <strong>Körperstatus:</strong> Klar &amp; wissenschaftlich messbar</li>
-                                <li><span>✔</span> <strong>Realistisches Ziel:</strong> Exakt definiert für deine Transformation</li>
-                                <li><span>✔</span> <strong>Messbarer Weg:</strong> Motiviert &amp; begleitet dich Schritt für Schritt</li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Körperstatus:</strong> Klar &amp; wissenschaftlich messbar</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Realistisches Ziel:</strong> Exakt definiert für deine Transformation</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Messbarer Weg:</strong> Motiviert &amp; begleitet dich Schritt für Schritt</div></li>
                             </ul>
                         </div>
                     </div>
@@ -328,8 +324,8 @@
                             <h3 class="usp-visual-title">Dein persönlicher EasyMotionSkin Trockenanzug</h3>
                             <p class="usp-visual-text">Kein Leih-Mief, kein kaltes Wassersprühen. Jeder Kunde erhält seinen eigenen, maßgeschneiderten Hightech-Anzug mit patentierten Trockenelektroden.</p>
                             <ul class="usp-visual-list">
-                                <li><span>✔</span> 100% kabellose Bewegungsfreiheit via Bluetooth</li>
-                                <li><span>✔</span> Eigener Anzug für maximale Hygiene</li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>100% kabellos:</strong> Volle Bewegungsfreiheit via Bluetooth</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Höchste Hygiene:</strong> Eigener Anzug, kein Leih-Mief oder Nassspritzen</div></li>
                             </ul>
                         </div>
                     </div>
@@ -337,16 +333,16 @@
                     <!-- Feature 3: Beckenboden-Stuhl (Chic mit authentischem Behandlungsbild) -->
                     <div class="usp-visual-card usp-card-chair">
                         <div class="usp-visual-media usp-media-chair">
-                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Pelvi_Chair.webp" alt="Juri Baron mit dem SHR Germany EMS Pelvi Chair (PelvicChair DUO) bei OneLife" class="usp-visual-img usp-img-chair" loading="lazy">
+                            <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Onelife_Pelvi_Chair.webp" alt="Juri Baron mit dem SHR Germany EMS Pelvic Chair (PelvicChair DUO) bei OneLife" class="usp-visual-img usp-img-chair" loading="lazy">
                         </div>
                         <div class="usp-visual-body">
                             <span class="usp-category-kicker">Jede 3. Frau leidet darunter • Core &amp; Beckenboden</span>
-                            <h3 class="usp-visual-title">SHR Germany EMS Pelvi Chair (Feminora Max)</h3>
+                            <h3 class="usp-visual-title">SHR Germany EMS Pelvic Chair (PelvicChair DUO)</h3>
                             <p class="usp-visual-text">Gezieltes Beckenboden- und Rückentraining vollkommen entspannt im Sitzen – <strong>in normaler Alltagskleidung</strong>. Tausende supramaximale Tiefenkontraktionen festigen die innere Stützmuskulatur diskret, schmerzfrei und ohne Nässe.</p>
                             <ul class="usp-visual-list">
-                                <li><span>✔</span> In Alltagskleidung (kein Entkleiden, keine Nässe)</li>
-                                <li><span>✔</span> Gezielte Rückbildung, Blasenkontrolle &amp; Core-Stabilität</li>
-                                <li><span>✔</span> Spürbare Entlastung der Lendenwirbelsäule</li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>In Alltagskleidung:</strong> Kein Entkleiden, keine Nässe, diskret im Sitzen</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Tiefenwirkung:</strong> Gezielte Rückbildung, Blasenkontrolle &amp; Core-Stabilität</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Rückenentlastung:</strong> Spürbare Entlastung der Lendenwirbelsäule</div></li>
                             </ul>
                         </div>
                     </div>
@@ -361,8 +357,8 @@
                             <h3 class="usp-visual-title">1-zu-1 Personal Training &amp; Cardio-EMS</h3>
                             <p class="usp-visual-text">Modernste Gerätegeneration kombiniert mit der ungeteilten Aufmerksamkeit deines lizenzierten Trainers. Ständige Haltungskorrektur und maximale Motivation.</p>
                             <ul class="usp-visual-list">
-                                <li><span>✔</span> Durchgehende Betreuung durch Top-Lizenz-Trainer</li>
-                                <li><span>✔</span> Hocheffektive Kombination aus Kraft &amp; Cardio</li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Top-Trainer:</strong> Durchgehende Betreuung durch Lizenz-Profis</div></li>
+                                <li><span class="usp-check">✔</span><div class="usp-item-content"><strong>Maximale Effizienz:</strong> Hocheffektive Kombination aus Kraft &amp; Cardio</div></li>
                             </ul>
                         </div>
                     </div>
@@ -468,9 +464,32 @@
                                 <div class="pillar-icon-box">⚡</div>
                                 <div class="pillar-body">
                                     <h4>Rückenfitness &amp; Beckenboden</h4>
-                                    <p>Entlastung der Wirbelsäule und diskretes Sit-Down-Training auf dem Pelvi Chair.</p>
+                                    <p>Entlastung der Wirbelsäule und diskretes Sit-Down-Training auf dem Pelvic Chair.</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dedicated High-End Conversion CTA Banner after USPs & Erfolgsbausteine -->
+                <div class="usps-conversion-banner">
+                    <div class="usps-conversion-content text-center">
+                        <span class="section-subtitle">Bereit für echte Ergebnisse?</span>
+                        <h3 class="usps-conversion-title">Erlebe den OneLife-Unterschied jetzt selbst</h3>
+                        <p class="usps-conversion-desc">25 Minuten hocheffizientes Personal Training inklusive digitaler InBody-Körperanalyse &amp; persönlichem Trainingsplan. 100% unverbindlich testen.</p>
+                        <div class="usps-conversion-action">
+                            <a href="#lead-form" class="btn btn-special-cta btn-lg" onclick="openLeadModal(event)">
+                                <span class="ekg-border-wrapper" aria-hidden="true">
+                                    <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
+                                        <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <svg class="btn-lightning-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                                <span>Jetzt kostenloses Probetraining vereinbaren</span>
+                            </a>
+                            <p class="usps-conversion-micro">⚡ Keine Vertragsbindung • Lizenzierte Profi-Coaches • Nur 1× 25 Min. pro Woche</p>
                         </div>
                     </div>
                 </div>
@@ -493,7 +512,7 @@
                             <li><span>✔</span> Regelmäßige Auszeichnungen für höchste Kundenzufriedenheit</li>
                             <li><span>✔</span> Exzellente Trainerkompetenz &amp; sportwissenschaftliche Führung</li>
                         </ul>
-                        <a href="#lead-form" class="btn btn-special-cta">
+                        <a href="#lead-form" class="btn btn-special-cta" onclick="openLeadModal(event)">
                             <span class="ekg-border-wrapper" aria-hidden="true">
                                 <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
                                     <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -552,7 +571,7 @@
                             <!-- Slide 1 -->
                             <div class="slide-card active" data-slide-index="0">
                                 <div class="video-container">
-                                    <video class="testimonial-video" preload="metadata" playsinline loop>
+                                    <video class="testimonial-video" preload="metadata" playsinline loop poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/poster_testimonial_1.webp">
                                         <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/%2C%2CMein%20Ziel%20ist%20es%20%E2%80%9Ejeden%20tag%E2%80%9C%20noch%20fitter%2C%20noch%20vitaler%20und%20noch%20st%C3%A4rker%20%26%20definierter%20zu%20werde.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-play-overlay">
@@ -570,7 +589,7 @@
                             <!-- Slide 2 -->
                             <div class="slide-card next" data-slide-index="1">
                                 <div class="video-container">
-                                    <video class="testimonial-video" preload="metadata" playsinline loop>
+                                    <video class="testimonial-video" preload="metadata" playsinline loop poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/poster_testimonial_2.webp">
                                         <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/-12Kg%20im%20Turbomodus%20(1x%20pro%20Woche).%2C%2CEMS-Training%20im%20OneLife%20hat%20sowohl%20mein%20%C3%84u%C3%9Feres%20als%20auch%20me.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-play-overlay">
@@ -588,7 +607,7 @@
                             <!-- Slide 3 -->
                             <div class="slide-card" data-slide-index="2">
                                 <div class="video-container">
-                                    <video class="testimonial-video" preload="metadata" playsinline loop>
+                                    <video class="testimonial-video" preload="metadata" playsinline loop poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/poster_testimonial_3.webp">
                                         <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/Gewinnspiel%20%2B%20Krasseste%20Transformation%20seit%20bestehen%20des%20OneLife%E2%80%98s%20%F0%9F%98%B3%F0%9F%A4%A9%F0%9F%92%AALukas%20hat%E2%80%99s%20allen%20gezei.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-play-overlay">
@@ -606,7 +625,7 @@
                             <!-- Slide 4 -->
                             <div class="slide-card" data-slide-index="3">
                                 <div class="video-container">
-                                    <video class="testimonial-video" preload="metadata" playsinline loop>
+                                    <video class="testimonial-video" preload="metadata" playsinline loop poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/poster_testimonial_4.webp">
                                         <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/Hallo%20liebe%20OneLife%20%2B%20Fitness-Family%2C%20%F0%9F%A4%A9%F0%9F%92%AA%E2%9A%A1%EF%B8%8F%F0%9F%94%8B%F0%9F%94%8CIm%20heutigen%20%E2%80%9EReel%E2%80%9C%20seht%20ihr%20eine%20%E2%80%9EKundenstimme%E2%80%9C%20.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-play-overlay">
@@ -624,7 +643,7 @@
                             <!-- Slide 5 -->
                             <div class="slide-card prev" data-slide-index="4">
                                 <div class="video-container">
-                                    <video class="testimonial-video" preload="metadata" playsinline loop>
+                                    <video class="testimonial-video" preload="metadata" playsinline loop poster="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/poster_testimonial_5.webp">
                                         <source src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/OneLife/Testimonials/%F0%9F%98%B3%F0%9F%98%B1%F0%9F%98%B3%F0%9F%98%B1%F0%9F%98%B3%F0%9F%98%B1%F0%9F%98%B3%F0%9F%98%B1%F0%9F%98%B3%F0%9F%98%B1%F0%9F%98%B3%F0%9F%98%B1-2%EF%B8%8F%E2%83%A37%EF%B8%8F%E2%83%A3kg%20in%20nur%206%EF%B8%8F%E2%83%A3Monaten%20bzw.%20In%20sage%20un%20schreibe%20nur%2024%20Personaltrai.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-play-overlay">
@@ -660,8 +679,10 @@
                 <div class="google-reviews-wrap">
                     <div class="google-reviews-header">
                         <div class="google-rating-summary">
-                            <span class="google-stars">★★★★★</span>
-                            <span class="google-score">5.0 / 5.0</span>
+                            <div class="google-score-stars-line">
+                                <span class="google-stars" aria-label="5 von 5 Sternen">★★★★★</span>
+                                <span class="google-score">5.0 / 5.0</span>
+                            </div>
                             <span class="google-verified-count">(Über 700 verifizierte Google-Bewertungen mit glatten 5 Sternen)</span>
                         </div>
                         <a href="https://search.google.com/local/writereview?placeid=ChIJK2e3XFOMsEcRyJWmjAh1tcE" target="_blank" rel="noopener noreferrer" class="btn-google-action" title="Jetzt eigene Google-Bewertung für OneLife schreiben">
@@ -722,6 +743,29 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Extra Conversion CTA Banner (Scholz & Friese High-End Conversion Driver) -->
+                <div class="testimonials-cta-banner">
+                    <div class="testimonials-cta-content">
+                        <span class="testimonials-cta-kicker">⚡ Bereit für deine eigene Transformation?</span>
+                        <h3 class="testimonials-cta-title">Werde Teil unserer Erfolgsgeschichten</h3>
+                        <p class="testimonials-cta-desc">Erlebe in nur 25 Minuten, wie sich schmerzfreies, maßgeschneidertes EMS anfühlt. 100% kostenlos &amp; unverbindlich.</p>
+                    </div>
+                    <div class="testimonials-cta-action">
+                        <a href="#lead-form" class="btn btn-special-cta btn-lg open-funnel-modal-btn" onclick="openLeadModal(event)">
+                            <span class="ekg-border-wrapper" aria-hidden="true">
+                                <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
+                                    <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <svg class="btn-lightning-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                            <span>Jetzt kostenloses Probetraining sichern</span>
+                        </a>
+                        <span class="testimonials-cta-micro">⚡ Inkl. InBody-Körperscan &amp; 1-zu-1 Trainerbetreuung</span>
                     </div>
                 </div>
 
@@ -957,12 +1001,12 @@
                     <!-- FAQ Item 4 -->
                     <div class="faq-item">
                         <button class="faq-question" type="button" aria-expanded="false">
-                            <span class="faq-q-text">Wie funktioniert der SHR Germany EMS Pelvi Chair (Beckenboden-Stuhl)?</span>
+                            <span class="faq-q-text">Wie funktioniert der SHR Germany EMS Pelvic Chair (Beckenboden-Stuhl)?</span>
                             <span class="faq-icon-toggle"></span>
                         </button>
                         <div class="faq-answer">
                             <div class="faq-answer-inner">
-                                <p>Der <strong>SHR Germany EMS Pelvi Chair Feminora Max</strong> stärkt die Beckenboden- und Rückenmuskulatur vollkommen entspannt im Sitzen – <strong>in normaler Alltagskleidung</strong>, ohne Entkleiden und ohne Nässe. Mittels hochenergetischer elektromagnetischer Stimulation werden in wenigen Minuten tausende Tiefenkontraktionen ausgelöst. Das ist ideal zur Rückbildung nach der Schwangerschaft, zur Vorbeugung von Blasenschwäche sowie zur nachhaltigen Entlastung der Lendenwirbelsäule.</p>
+                                <p>Der <strong>SHR Germany EMS Pelvic Chair Feminora Max</strong> stärkt die Beckenboden- und Rückenmuskulatur vollkommen entspannt im Sitzen – <strong>in normaler Alltagskleidung</strong>, ohne Entkleiden und ohne Nässe. Mittels hochenergetischer elektromagnetischer Stimulation werden in wenigen Minuten tausende Tiefenkontraktionen ausgelöst. Das ist ideal zur Rückbildung nach der Schwangerschaft, zur Vorbeugung von Blasenschwäche sowie zur nachhaltigen Entlastung der Lendenwirbelsäule.</p>
                             </div>
                         </div>
                     </div>
@@ -1033,9 +1077,15 @@
                 </div>
                 
                 <!-- Funnel Form Container -->
-                <div class="funnel-container">
-                    <div class="funnel-progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+                <div class="funnel-container" id="inpage-funnel-container">
+                    <div class="funnel-progress-wrap">
+                        <div class="funnel-progress-meta">
+                            <span class="step-badge">Schritt <span class="active-step-num">1</span> von 3</span>
+                            <span class="progress-pct-badge">33%</span>
+                        </div>
+                        <div class="funnel-progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
                     </div>
                     
                     <form id="probetraining-funnel-form" class="funnel-form">
@@ -1054,7 +1104,7 @@
                                     <input type="radio" name="goal" value="gewicht">
                                     <span class="option-card">
                                         <span class="option-icon">⚖️</span>
-                                        <span class="option-title">Abnehmen & Körper straffen</span>
+                                        <span class="option-title">Abnehmen &amp; Körper straffen</span>
                                     </span>
                                 </label>
                                 <label class="funnel-option">
@@ -1130,7 +1180,7 @@
                                 </div>
                                 <div class="form-checkbox-group">
                                     <input type="checkbox" id="client-privacy" name="privacy" class="form-checkbox" required>
-                                    <label for="client-privacy" class="form-checkbox-label">Ich stimme der Verarbeitung meiner Daten zur Terminvereinbarung zu (Datenschutzerklärung).</label>
+                                    <label for="client-privacy" class="form-checkbox-label">Ich stimme der Verarbeitung meiner Daten zur Terminvereinbarung zu (<a href="datenschutz.html" target="_blank" style="color: var(--color-primary-glow); text-decoration: underline;">Datenschutzerklärung</a>).</label>
                                 </div>
 
                                 <!-- Cloudflare Turnstile Spam-Schutz -->
@@ -1284,7 +1334,171 @@
         </div>
     </footer>
 
+    <!-- ==========================================================================
+         Lead Funnel Modal Window (Scholz & Friese High-End Agency Popup)
+         ========================================================================== -->
+    <div id="lead-funnel-modal" class="funnel-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-funnel-title" onclick="if(event.target === this) closeLeadModal(event)">
+        <div class="funnel-modal-dialog">
+            <button type="button" class="funnel-modal-close" id="funnel-modal-close" aria-label="Fenster schließen" title="Fenster schließen (ESC)" onclick="closeLeadModal(event)">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+
+            <div class="funnel-modal-header text-center">
+                <span class="section-subtitle">Exklusives Angebot</span>
+                <h2 class="funnel-modal-title" id="modal-funnel-title">Sichere dir dein kostenloses Probetraining</h2>
+                <p class="funnel-modal-desc">In 30 Sekunden unverbindlich anfragen • Inklusive InBody-Körperanalyse &amp; Personal Coaching</p>
+            </div>
+
+            <!-- Modal Funnel Form Container -->
+            <div class="funnel-container modal-funnel-container" id="modal-funnel-container">
+                <div class="funnel-progress-wrap">
+                    <div class="funnel-progress-meta">
+                        <span class="step-badge">Schritt <span class="active-step-num">1</span> von 3</span>
+                        <span class="progress-pct-badge">33%</span>
+                    </div>
+                    <div class="funnel-progress-bar">
+                        <div class="progress-fill" id="modal-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <form id="modal-funnel-form" class="funnel-form">
+                    <!-- Step 1: Goal Selection -->
+                    <div class="funnel-step active" data-step="1">
+                        <h3 class="funnel-step-title">Was ist dein wichtigstes sportliches Ziel?</h3>
+                        <div class="funnel-options-grid">
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_goal" value="ruecken" required>
+                                <span class="option-card">
+                                    <span class="option-icon">🩹</span>
+                                    <span class="option-title">Rückenschmerzen lindern</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_goal" value="gewicht">
+                                <span class="option-card">
+                                    <span class="option-icon">⚖️</span>
+                                    <span class="option-title">Abnehmen &amp; Körper straffen</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_goal" value="muskeln">
+                                <span class="option-card">
+                                    <span class="option-icon">💪</span>
+                                    <span class="option-title">Muskeln aufbauen</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_goal" value="energie">
+                                <span class="option-card">
+                                    <span class="option-icon">🔋</span>
+                                    <span class="option-title">Mehr Energie im Alltag</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="funnel-nav">
+                            <button type="button" class="btn btn-primary btn-next">Weiter ➔</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Corporate Fitness -->
+                    <div class="funnel-step" data-step="2">
+                        <h3 class="funnel-step-title">Bist du Mitglied bei einem unserer Firmenfitness-Partner?</h3>
+                        <div class="funnel-options-grid">
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_corporate" value="hansefit" required>
+                                <span class="option-card">
+                                    <span class="option-title">Hansefit</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_corporate" value="egym">
+                                <span class="option-card">
+                                    <span class="option-title">EGYM Wellpass</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_corporate" value="epassi">
+                                <span class="option-card">
+                                    <span class="option-title">EPassi</span>
+                                </span>
+                            </label>
+                            <label class="funnel-option">
+                                <input type="radio" name="modal_corporate" value="nein">
+                                <span class="option-card">
+                                    <span class="option-title">Nein, Privatzahler</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="funnel-nav">
+                            <button type="button" class="btn btn-secondary btn-prev">🠔 Zurück</button>
+                            <button type="button" class="btn btn-primary btn-next">Weiter ➔</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Contact Info -->
+                    <div class="funnel-step" data-step="3">
+                        <h3 class="funnel-step-title">Wohin dürfen wir deine Einladung senden?</h3>
+                        <div class="funnel-inputs">
+                            <div class="form-group">
+                                <label for="modal-client-name" class="form-label">Dein Vor- und Nachname</label>
+                                <input type="text" id="modal-client-name" name="name" class="form-input" placeholder="z. B. Max Mustermann" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-client-email" class="form-label">Deine E-Mail-Adresse</label>
+                                <input type="email" id="modal-client-email" name="email" class="form-input" placeholder="z. B. max@beispiel.de" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-client-phone" class="form-label">Deine Telefonnummer (für Terminabsprache)</label>
+                                <input type="tel" id="modal-client-phone" name="phone" class="form-input" placeholder="z. B. 0170 1234567" required>
+                            </div>
+                            <div class="form-checkbox-group">
+                                <input type="checkbox" id="modal-client-privacy" name="privacy" class="form-checkbox" required>
+                                <label for="modal-client-privacy" class="form-checkbox-label">Ich stimme der Verarbeitung meiner Daten zur Terminvereinbarung zu (<a href="datenschutz.html" target="_blank" style="color: var(--color-primary-glow); text-decoration: underline;">Datenschutzerklärung</a>).</label>
+                            </div>
+
+                            <!-- Cloudflare Turnstile Spam-Schutz -->
+                            <div class="turnstile-container-wrapper" id="modal-turnstile-wrapper">
+                                <div id="modal-cf-turnstile-container"></div>
+                            </div>
+                            <div id="modal-form-error-msg" class="form-error-banner" style="display: none;" role="alert"></div>
+                        </div>
+                        <div class="funnel-nav">
+                            <button type="button" class="btn btn-secondary btn-prev">🠔 Zurück</button>
+                            <button type="submit" class="btn btn-special-cta btn-submit" id="modal-submit-btn">
+                                <span class="ekg-border-wrapper" aria-hidden="true">
+                                    <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
+                                        <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <svg class="btn-lightning-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                                <span>Jetzt Probetraining vereinbaren</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Success View -->
+                <div class="funnel-success-message" id="modal-funnel-success">
+                    <div class="success-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="success-icon"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3 class="success-title">Einladung ist auf dem Weg!</h3>
+                    <p class="success-text">Vielen Dank für deine Anfrage! Wir haben deine Daten erhalten. Einer unserer Champions (Denis, Mark oder Juri) wird dich innerhalb der nächsten 24 Stunden telefonisch kontaktieren, um deinen Wunschtermin für das Probetraining abzustimmen.</p>
+                    <p class="success-subtext">Lege dir schon mal ein Handtuch und Sportschuhe bereit – den Rest übernehmen wir.</p>
+                    <div style="margin-top: 24px; text-align: center;">
+                        <button type="button" class="btn btn-secondary" onclick="closeLeadModal(event)">Fenster schließen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript files -->
-    <script src="index.js"></script>
+    <script src="index.js?v=2.4"></script>
 </body>
 </html>
