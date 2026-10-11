@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="index.css?v=2.4">
+    <link rel="stylesheet" href="index.css?v=2.5">
 
     <!-- Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
@@ -362,6 +362,21 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <!-- Action CTA directly following "Warum Personal Training bei uns unschlagbar ist" -->
+                <div class="usps-cards-cta text-center">
+                    <a href="#lead-form" class="btn btn-special-cta btn-lg" onclick="openLeadModal(event)">
+                        <span class="ekg-border-wrapper" aria-hidden="true">
+                            <svg class="ekg-border-svg" viewBox="-32 -16 64 32" fill="none">
+                                <path class="ekg-border-path" d="M -28 1 L -16 1 L -12 -4 L -8 5 L 0 -16 L 7 8 L 11 -3 L 15 1 L 28 1" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <svg class="btn-lightning-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                        <span>Jetzt kostenloses Probetraining vereinbaren</span>
+                    </a>
                 </div>
 
                 <!-- 9 OneLife Erfolgsbausteine (Original aus der Studio-Broschüre) -->
@@ -1079,10 +1094,6 @@
                 <!-- Funnel Form Container -->
                 <div class="funnel-container" id="inpage-funnel-container">
                     <div class="funnel-progress-wrap">
-                        <div class="funnel-progress-meta">
-                            <span class="step-badge">Schritt <span class="active-step-num">1</span> von 3</span>
-                            <span class="progress-pct-badge">33%</span>
-                        </div>
                         <div class="funnel-progress-bar">
                             <div class="progress-fill" id="progress-fill"></div>
                         </div>
@@ -1355,10 +1366,6 @@
             <!-- Modal Funnel Form Container -->
             <div class="funnel-container modal-funnel-container" id="modal-funnel-container">
                 <div class="funnel-progress-wrap">
-                    <div class="funnel-progress-meta">
-                        <span class="step-badge">Schritt <span class="active-step-num">1</span> von 3</span>
-                        <span class="progress-pct-badge">33%</span>
-                    </div>
                     <div class="funnel-progress-bar">
                         <div class="progress-fill" id="modal-progress-fill"></div>
                     </div>
@@ -1499,6 +1506,6 @@
     </div>
 
     <!-- JavaScript files -->
-    <script src="index.js?v=2.4"></script>
+    <script src="index.js?v=2.5"></script>
 </body>
 </html>

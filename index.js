@@ -366,11 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progressFill && steps.length > 0) {
                 const percentage = (currentStep / steps.length) * 100;
                 progressFill.style.width = `${percentage}%`;
-
-                const stepNumEl = container.querySelector('.active-step-num');
-                if (stepNumEl) stepNumEl.textContent = currentStep;
-                const pctEl = container.querySelector('.progress-pct-badge');
-                if (pctEl) pctEl.textContent = `${Math.round(percentage)}%`;
             }
 
             if (currentStep === 3) {
