@@ -47,9 +47,86 @@ window.closeLeadModal = function(e) {
 window.openFunnelModal = window.openLeadModal;
 window.closeFunnelModal = window.closeLeadModal;
 
+// ==========================================================================
+// Global Legal Modal Functions (Impressum, Datenschutz, Barrierefreiheit)
+// ==========================================================================
+window.switchLegalTab = function(tabName) {
+    const validTabs = ['impressum', 'datenschutz', 'barrierefreiheit'];
+    const activeTab = validTabs.includes(tabName) ? tabName : 'impressum';
+
+    validTabs.forEach(name => {
+        const btn = document.getElementById(`tab-btn-${name}`);
+        const panel = document.getElementById(`legal-panel-${name}`);
+        if (btn) {
+            if (name === activeTab) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+            } else {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            }
+        }
+        if (panel) {
+            if (name === activeTab) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+    });
+
+    const modalBody = document.getElementById('legal-modal-body');
+    if (modalBody) {
+        modalBody.scrollTop = 0;
+    }
+};
+
+window.openLegalModal = function(tabName, e) {
+    if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const modal = document.getElementById('legal-modal-backdrop');
+    if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        
+        // Close mobile nav overlay if open
+        const mobileOverlay = document.getElementById('mobile-nav-overlay');
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        if (mobileOverlay && mobileOverlay.classList.contains('active')) {
+            mobileOverlay.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        window.switchLegalTab(tabName || 'impressum');
+    }
+};
+
+window.closeLegalModal = function(e) {
+    if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    const modal = document.getElementById('legal-modal-backdrop');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        
+        // Only remove modal-open if lead modal is not active
+        const leadModal = document.getElementById('lead-funnel-modal');
+        if (!leadModal || !leadModal.classList.contains('active')) {
+            document.body.classList.remove('modal-open');
+        }
+    }
+};
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         window.closeLeadModal();
+        window.closeLegalModal();
     }
 });
 
@@ -734,6 +811,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn.type === 'submit' || btn.id === 'submit-btn' || btn.id === 'modal-submit-btn' || btn.closest('.funnel-form')) return;
             e.preventDefault();
             window.openLeadModal(e);
+        });
+    });
+
+    // Wire all legal links (Impressum, Datenschutz, Barrierefreiheit) to open the sleek legal modal window
+    document.querySelectorAll('a[href*="impressum.html"]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.openLegalModal('impressum', e);
+        });
+    });
+    document.querySelectorAll('a[href*="datenschutz.html"]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.openLegalModal('datenschutz', e);
+        });
+    });
+    document.querySelectorAll('a[href*="barrierefreiheit.html"]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.openLegalModal('barrierefreiheit', e);
         });
     });
 
