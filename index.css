@@ -2346,6 +2346,14 @@ a {
     object-position: center 15% !important;
 }
 
+.usp-img-gecko {
+    object-position: center 20% !important;
+}
+
+.usp-img-nacken {
+    object-position: center 25% !important;
+}
+
 .usp-visual-card:hover .usp-visual-img {
     transform: scale(1.05);
 }
