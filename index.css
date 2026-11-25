@@ -2300,6 +2300,12 @@ a {
     padding: var(--section-padding);
     background-color: var(--color-bg);
     position: relative;
+    overflow: hidden;
+}
+
+.usps-section .section-container {
+    position: relative;
+    z-index: 1;
 }
 
 .usps-visual-grid {
@@ -2663,6 +2669,153 @@ a {
 
     .usp-card-blackroll .usp-blackroll-mosaic {
         height: 240px !important;
+    }
+}
+
+/* ==========================================================================
+   Dedicated Special Offers Section (#specials - IHHT & BLACKROLL)
+   ========================================================================== */
+.special-offers-section {
+    padding: var(--section-padding);
+    background: linear-gradient(180deg, rgba(16, 22, 34, 0.65) 0%, rgba(8, 10, 15, 0.96) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.special-offers-bg-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 14%, rgba(0, 0, 0, 0.9) 86%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 14%, rgba(0, 0, 0, 0.9) 86%, transparent 100%);
+}
+
+.special-offers-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.special-offers-section .section-container {
+    position: relative;
+    z-index: 1;
+}
+
+.special-offers-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.pillars-section .brochure-pillars-wrap {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* ==========================================================================
+   Centered Single USP Card & Large CellAir® Gecko IHHT Showcase Card
+   ========================================================================== */
+.usp-card-single-wrapper {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.usp-card-single {
+    max-width: 620px;
+    width: 100%;
+}
+
+.usp-ihht-media {
+    position: relative;
+    width: 360px;
+    height: 100%;
+    min-height: 360px;
+    overflow: hidden;
+    background-color: #0b0e14;
+}
+
+.usp-ihht-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.usp-card-ihht:hover .usp-ihht-media img {
+    transform: scale(1.05);
+}
+
+.usp-ihht-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 18px !important;
+}
+
+.usp-ihht-nobel {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background-color: rgba(0, 160, 84, 0.08);
+    border: 1px solid rgba(0, 160, 84, 0.28);
+    border-radius: 12px;
+}
+
+.usp-ihht-nobel-title {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #34D399;
+    margin-bottom: 4px;
+}
+
+.usp-ihht-nobel-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #CBD5E1;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .usp-ihht-media {
+        width: 310px;
+    }
+}
+
+@media (max-width: 768px) {
+    .usp-card-single {
+        max-width: 100%;
+    }
+    .usp-ihht-media {
+        width: 100% !important;
+        height: 300px !important;
+        min-height: unset !important;
+    }
+    .usp-ihht-list {
+        grid-template-columns: 1fr;
+        gap: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .usp-ihht-media {
+        height: 250px !important;
+    }
+    .usp-ihht-nobel {
+        padding: 12px 14px;
+    }
+    .usp-ihht-nobel-title {
+        font-size: 13px;
+    }
+    .usp-ihht-nobel-text {
+        font-size: 12px;
     }
 }
 
